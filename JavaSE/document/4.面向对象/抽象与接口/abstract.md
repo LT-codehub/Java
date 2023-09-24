@@ -15,8 +15,8 @@
 1. abstract不能用来修饰：属性、构造器等结构
 2. abstract不能用来修饰私方法、静态方法、final的方法、final的类
 ## abstract的应用举例：
-举例一：
-举例二：
+###举例一：
+###举例二：
 ```java
 abstract class GeometricObject{
 public abstract double findArea();
@@ -29,8 +29,9 @@ public double findArea(){
 };
 }
 ```
-举例三：IO流中设计到的抽象类：InputStream/OutputStream / Reader /Writer。在其内部
-定义了抽象的read()、write()方法。
+###举例三：IO流中设计到的抽象类：
+InputStream/OutputStream / Reader /Writer。
+在其内部定义了抽象的read()、write()方法。
 
 
 

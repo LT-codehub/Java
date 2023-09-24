@@ -5,7 +5,7 @@
 2. RandomAccessFile既可以作为一个输入流，又可以作为一个输出流
 3. 如果RandomAccessFile作为输出流时，写出到的**文件如果不存在**，则在执行过程中**自动创建**。
    1. 如果写出到的文件存在，则会对原文件内容进行覆盖。（**默认情况下，从头覆盖**）
-4. 可以通过相关的操作，**实现**RandomAccessFile**“**`**插入**`**”数据的效果**。seek(int pos)
+4. 可以通过相关的操作，**实现RandomAccessFile`插入`数据的效果**。`seek(int pos)`
 ## 典型代码
 ```java
 @Test

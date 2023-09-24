@@ -1,20 +1,21 @@
 NIO
 
 1. NIO与原来的IO**同样的作用和目的**，但是使用的方式完全不同，NIO**支持面向缓冲区**的(IO是面向流的)、**基于通道**的IO操作。
-2. NIO将以更加高效的方式进行文件的读写操作。![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1695052019855-f27cef07-6a2a-44b3-9a7a-7a43dc3be74d.png#averageHue=%23b7c7dd&clientId=uf56efacd-4dcb-4&from=paste&id=u99122c64&originHeight=366&originWidth=1108&originalType=url&ratio=1&rotation=0&showTitle=false&size=197011&status=done&style=none&taskId=uebbe931b-fb5c-4228-9c13-9c01b8bca45&title=)
+2. NIO将以更加高效的方式进行文件的读写操作。![image.png](image/img_3.png)
 - 可简单认为：**IO是面向流的处理，NIO是面向块(缓冲区)的处理**
    - 面向流的I/O 系统**一次一个字节地处理数据**
    - 一个面向块(缓冲区)的I/O系统**以块的形式处理数据**
 ## 核心组件
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1695052864628-ae7587e4-3fb9-4bc3-bfa9-b343060528b8.png#averageHue=%23fbfbfa&clientId=uf56efacd-4dcb-4&from=paste&height=231&id=ni3Fp&originHeight=231&originWidth=949&originalType=binary&ratio=1&rotation=0&showTitle=false&size=13282&status=done&style=none&taskId=ufaaf35e7-879b-46ab-8471-d31aaf5d018&title=&width=949)
+![image.png](image/image.png)
+
 Java NIO的核心组件 包括：
 
 - 通道（Channel）**-->双向运输**
    - 相对于传统IO而言，**流是单向的**。对于NIO而言，有了Channel管道这个概念，我们的**读写都是双向**的
    - Channel除了能够接到文件上，也能被接到Scoket上
 - 缓冲区（Buffer）**-->数据**
-   - 缓冲区，用来存放具体要被传输的数据，本质是一个**不同类型的数组**![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1695053112636-e117b533-6aab-414b-a247-88c5cf2c53d5.png#averageHue=%23fbfbf6&clientId=uf56efacd-4dcb-4&from=paste&id=u81b2944e&originHeight=228&originWidth=1642&originalType=url&ratio=1&rotation=0&showTitle=false&size=20029&status=done&style=none&taskId=u5fd63ecc-add1-409f-92f2-0c09d15156f&title=)
-- 选择器（Selector）
+   - 缓冲区，用来存放具体要被传输的数据，本质是一个**不同类型的数组**![image.png](image/img_4.png)
+  - 选择器（Selector）
    - 一个选择器可以同时监听多个服务器端口, 帮多个服务器端口同时等待客户端的访问
    - **Selector是因为NIO可以使用异步的非阻塞模式才加入的东西**
 ### Buffer API
@@ -40,7 +41,7 @@ Java 中的基本数据类型，都有一个 Buffer 类型与之相对应，最�
 
 - `put(byte b)` : 给数组添加元素
 - `get()` :获取一个元素
-- `filp()`**：“切换成读模式”**
+- `filp()`：“切换成读模式”**
 ```java
 import java.nio.ByteBuffer;
 
@@ -104,7 +105,7 @@ public static void main(String[] args) {
         System.out.println("put完之后-->mark--->" + byteBuffer.mark());
     }
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1695054971146-447c8863-9547-41e1-a748-44f08034619e.png#averageHue=%23f9f8f8&clientId=uf56efacd-4dcb-4&from=paste&id=u3553fc9a&originHeight=460&originWidth=758&originalType=url&ratio=1&rotation=0&showTitle=false&size=107111&status=done&style=none&taskId=u3be6ba12-4feb-4caa-91a8-82c83dfb8a4&title=)
+![image.png](image/img_5.png)
 ### **Channel API**
 
 - Channel接口
@@ -424,8 +425,8 @@ Path**替换原有的File类**
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655991491911-6ceb8eb7-b4fd-403a-8386-7fee3bae74af.png#averageHue=%23afc2e1&clientId=u44f14cce-077c-4&from=paste&height=358&id=u90894a33&originHeight=358&originWidth=755&originalType=binary&ratio=1&rotation=0&showTitle=false&size=40659&status=done&style=none&taskId=uce4aaf58-7988-4acd-b281-e5985e4a4ad&title=&width=755)
 
 # 参考
-[5.NIO零拷贝与传统IO的文件传输性能比较_nio文件传输-CSDN博客](https://blog.csdn.net/PacosonSWJTU/article/details/126442150)
-[NIO](https://zhuanlan.zhihu.com/p/378465826)
+- [NIO零拷贝与传统IO的文件传输性能比较_nio文件传输-CSDN博客](https://blog.csdn.net/PacosonSWJTU/article/details/126442150)
+- [NIO](https://zhuanlan.zhihu.com/p/378465826)
 
 
 
