@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引用媒体类型</title>
+    <!-- 建议的方式：全部定义在一个通用样式中，需要兼容的代码就单独使用@media xxx -->
+    <link href="style/style.css" type="text/css" rel="stylesheet" />
+    <!-- 过于复杂，建议使用@media方式 -->
+    <style type="text/css">
+        @import "style/print.css" print;
+        @import "style/screen.css" screen;
+    </style>
+    <style type="text/css">
+        @media tv {
+            body{color: orange;}
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

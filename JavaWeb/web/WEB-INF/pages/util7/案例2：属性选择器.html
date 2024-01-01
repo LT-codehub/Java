@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器示例</title>
+    <style type="text/css">
+        /*p[lang='en']{*/
+        /*    color: darkorchid;*/
+        /*}*/
+        /* 匹配lang属性的取值中任意位置包含zh的元素 */
+        /*p[lang*='zh']{*/
+        /*    color: darkorchid;*/
+        /*}*/
+        /* 只匹配属性取值的开头是zh的元素 */
+        /*p[lang^='zh']{*/
+        /*    color: darkorchid;*/
+        /*}*/
+        /* 只匹配属性取值的结尾是zh的元素 */
+        /*p[lang$='zh']{*/
+        /*    color: darkorchid;*/
+        /*}*/
+        /* 匹配的属性取值必须是完整且唯一的单词， 或者使用-分隔 */
+        /*p[lang^='-zh']{*/
+        /*    color: darkorchid;*/
+        /*}*/
+        /* 匹配的属性值必须是一个完整的单词 */
+        p[lang~='zh']{
+            color: darkorchid;
+        }
+        /* 匹配所有以.jpg结尾的图片路径 */
+        img[src$=".jpg"]{
+
+        }
+    </style>
+</head>
+<body>
+<p lang="en" title="first_p">第一段</p>
+<p lang="-zhi-CN">第二段</p>
+<p lang="-zh-SI">第三段</p>
+<p lang="zh">第四段</p>
+<p lang="zh-zh">第五段</p>
+<p lang="zhzhzh">第六段</p>
+<img src="images/xxx.jpg"/>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动</title>
+    <style type="text/css">
+        .son1, .son2, .son3{
+            width: 300px;
+            height: 200px;
+            float: left;
+            border: orange dotted 1px;
+        }
+        .b1{border: orangered dotted 1px;}
+        .clear{clear: both;}
+
+        .son2{
+            /*规定元素的哪一侧不允许其他浮动元素*/
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<div class="parent b1">
+    <div class="son1">1</div>
+    <div class="son2">2</div>
+    <div class="son3">3</div>
+    <!-- 内墙元素隔离法的方式解决父容器高度塌陷问题 -->
+    <div class="clear"></div>
+</div>
+
+<!-- 解决父容器边框塌陷的方法小结 -->
+<!--
+    方案1：直接给浮动元素的父元素设置高度
+        我们在实际开发中，比较推荐的方式是把高度设置为自适应auto，让子元素撑大父元素
+        优点：简单、粗暴，但有效
+        缺点：必须手动的设置高度，如果网页的内容高度发生变化，就会产生“开天窗”的问题
+-->
+<!--
+    方案2：内墙元素隔离法 - 相当长的一段时间内，很多大公司使用的通用方法
+ -->
+
+<!--
+    方案3：伪元素法（是从方案2升级过来的，要添加在父元素的样式中）
+    .clearfix::after{ /* 在父元素的最后添加一个文字节点 - 默认是行级元素，需要修改为块级元素 */
+        display: block;     以块级元素的方式显示
+        content: "";        插入的文字
+        clear: both;        清除两侧的浮动，强制撑大父元素
+        height: 0;
+        visibility: hidden;
+        *zoom: 1;           IE6清除浮动的方式，*号只有IE6和IE7认识，其他浏览器会自动忽略
+    }
+-->
+<!--<div class="clearfix"></div>-->
+
+<!--
+    方案4：双伪元素清除浮动
+    .clearfix::after, .clearfix::before{
+        display: table;
+        content: "";
+    }
+    .clearfix::after{
+        clear: both;
+    }
+    .clearfix{
+        *zoom: 1;
+    }
+ -->
+
+<!--
+    方案5：overflow: hidden;
+        设置父容器的内容溢出时的处理方式为隐藏溢出的内容
+        这是浏览器渲染机制的副作用：会重新的计算父容器的高度
+        使用这个属性时需要注意：在内容较多的时候，有可能会引起内容的截断！！
+-->
+</body>
+</html>

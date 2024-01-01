@@ -1,5 +1,5 @@
 ## 1.开发体验——HelloWorld
-![img.png](image/img_2.png)
+![img.png](image/未命名文件%20(14).png)
 ### 1.1 编写
 创建一个java源文件：HelloWorld.java
 ```java

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>iframe</title>
+  <style>
+    div {
+      align-content: center;
+    }
+  </style>
+</head>
+<body>
+<h1 align="center">iframe</h1>
+<!--iframe实例-->
+<div>
+  <iframe src="https://www.runoob.com/html/html-tutorial.html" width="100%" height="500px"></iframe>
+</div>
+
+<div>
+  <!--设置高度和宽度-->
+<iframe src="https://www.runoob.com/html/html-tutorial.html" width="200" height="200"></iframe>
+</div>
+<div>
+  <!--移除边框-->
+  <iframe src="dhttps://www.runoob.com/html/html-tutorial.html" frameborder="0"></iframe>
+</div>
+
+<!--使用 iframe 来显示目标链接页面-->
+<div>
+  <iframe src="https://www.runoob.com/html/html-tutorial.html" name="baidu"></iframe>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="baidu">百度</a>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="_blank">百度</a>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="_parent">百度</a>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="_self">百度</a>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="_top">百度</a>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="_search">百度</a>
+  <a href="https://www.runoob.com/html/html-tutorial.html" target="_undefined">百度</a>
+</div>
+</body>
+</html>

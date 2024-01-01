@@ -141,8 +141,10 @@ public static void main(String[] args)  {
         }
     }
 ```
+[Java中getResourceAsStream的用法（取路径）](https://blog.csdn.net/qq_34748010/article/details/108256981)
 # 面试题
 
 1. HashMap的底层实现原理？
 2. HashMap 和 Hashtable的异同？
 3. CurrentHashMap 与 Hashtable的异同？（暂时不讲)
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义裁切区域</title>
+    <style type="text/css">
+        body{padding:0; margin:0;}
+        .day-and-night, .day, .night{
+            position: relative;
+            width: 800px;
+            height: 530px;
+        }
+        .day{
+            position: absolute;
+            left: 0;
+            right: 0;
+            background-image: url("images/廊桥-白天.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .night{
+            position: absolute;
+            left: 0;
+            right: 0;
+            background-image: url("images/廊桥-黑夜.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* 裁切一个三角形出来 polygon-多边形 */
+            clip-path: polygon(0px 0px, 800px 0px, 800px 530px);
+        }
+    </style>
+</head>
+<body>
+<div class="day-and-night">
+    <div class="day"></div>
+    <div class="night"></div>
+</div>
+</body>
+</html>

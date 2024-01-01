@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5中新增的表单元素</title>
+</head>
+<body>
+<form method="get" action="" name="frm">
+    <!--
+        required：必填选项-不能为空
+        multiple：允许输入多个邮箱地址，逗号分割(选填)
+     -->
+    *电子邮箱：<input type="email" name="txtEmail" required="required"/><br/>
+    允许输入多个邮箱地址，逗号分割(选填)：<input type="email" name="txtEmail2" multiple="multiple"/><br/>
+    颜色：<input type="color" value="red"/> <br/>
+    <!--
+     onchange：滑块的值改变的事件，值一旦改变，同时改变旁边文本框的值
+     -->
+    滑块选择：<input type="range" value="0" onchange="frm.txtValue.value=this.value" />
+    <input type="text" name="txtValue"/><br/>
+    <!--
+        其他属性：search(搜索框), tel(电话号码：00-0000)
+    -->
+    搜索框：<input type="search" required />
+    出生日期：<input type="date" /><br/>
+    官方网站：<input type="url" required />
+    数字框：<input type="number" required/>
+    <input type="submit" value="注册" />
+</form>
+<hr>
+
+<canvas id="Canvas" width="200" height="100"
+        style="border:1px solid #000000;">
+</canvas>
+<hr>
+<canvas id="myCanvas" width="200" height="100"></canvas>
+
+<hr>
+<canvas id="canvasDome" width="200" height="100"></canvas>
+
+<hr>
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0,0,150,75);
+
+
+    var con = document.getElementById("canvasDome");
+    var context = con.getContext("2d");
+    context.font = 'italic 18px Arial';
+    context.fillText('Hello World', 10, 10);
+</script>
+</body>
+</html>

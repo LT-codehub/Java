@@ -1,0 +1,9 @@
+body{
+    background: black;
+    color: white;
+    font-size: 18px;
+}
+body:after{
+    content: "iphone 678就是不带P！！设备屏幕宽375px";
+    font-weight: bold;
+}

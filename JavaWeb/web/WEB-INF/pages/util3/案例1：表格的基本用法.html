@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+<!--
+    cellpadding="0"     单元格的内边距为0
+    cellspacing="0"     单元格之间的距离为0
+-->
+<table width="800" border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>第一行第一列</th>
+        <th>第一行第二列</th>
+        <th>第一行第三列</th>
+    </tr>
+    <tr align="center">
+        <td>第二行第一列</td>
+        <td>第二行第二列</td>
+        <td>第二行第三列</td>
+    </tr>
+    <tr style="text-align: right; background:orangered;font-weight: bold;">
+        <td>第三行第一列</td>
+        <td>第三行第二列</td>
+        <td>第三行第三列</td>
+    </tr>
+</table>
+
+<h1>表格的跨行和跨列</h1>
+<table width="800" border="1">
+    <tr>
+        <th colspan="2" rowspan="2">项目</th>
+        <th colspan="2">本周发生</th>
+    </tr>
+    <tr>
+        <th>收入</th>
+        <th>支出</th>
+    </tr>
+    <tr>
+        <td rowspan="3">收入</td>
+        <td>贷款收回</td>
+        <td>1254545454</td>
+        <td>5456456456.3</td>
+    </tr>
+    <tr>
+        <td>内部转款</td>
+        <td>3432432.23432</td>
+        <td>34432111.2212</td>
+    </tr>
+    <tr>
+        <td>内部转款</td>
+        <td>3432432.23432</td>
+        <td>34432111.2212</td>
+    </tr>
+    <tr>
+        <td rowspan="5">支出</td>
+        <td>采购支出</td>
+        <td>1254545454</td>
+        <td>5456456456.3</td>
+    </tr>
+    <tr>
+        <td>基建支出</td>
+        <td>3432432.23432</td>
+        <td>34432111.2212</td>
+    </tr>
+    <tr>
+        <td>工资支出</td>
+        <td>3432432.23432</td>
+        <td>34432111.2212</td>
+    </tr>
+    <tr>
+        <td>其他支出</td>
+        <td>3432432.23432</td>
+        <td>34432111.2212</td>
+    </tr>
+    <tr>
+        <td>支出合计</td>
+        <td>3432432.23432</td>
+        <td>34432111.2212</td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

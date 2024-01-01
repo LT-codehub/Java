@@ -9,7 +9,7 @@ import java.util.List;
  * @description: 数据类型展示
  * @date 2023/9/21 17:20
  */
-public class DataType {
+public class    DataType {
 
     public int anInt;
     private short aShort;

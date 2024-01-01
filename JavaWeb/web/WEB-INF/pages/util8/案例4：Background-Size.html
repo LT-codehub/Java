@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设定背景图像的大小模式</title>
+    <style type="text/css">
+        .background-size-1, .background-size-2, .background-size-3, .background-size-4{
+            width: 1002px;
+            height: 602px;
+            background-image: url(images/wzry001.png);
+            background-size: auto;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 36px;
+        }
+        .background-size-2{
+            /* 为了观察包含的效果，这里修改下宽高 */
+            width: 500px;       /* 容器的宽度缩小 */
+            height: 1000px;     /* 容器的高度增加，图片会随着更小的属性来适应容器：等比例缩放 */
+            background-repeat: no-repeat;
+            background-size: contain;
+            border: #ff2200 dotted 1px;
+        }
+        .background-size-3{
+            width: 1500px;      /* 图片会随着更大的属性进行等比例缩放 */
+            height: 2000px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: #ff2200 dotted 1px;
+        }
+        .background-size-4{
+            width: 1500px;
+            height: 500px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            border: #ff2200 dotted 1px;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="background-size-1"></div>-->
+<!--<div class="background-size-2">-->
+<!--    backgournd-size: contain;   缩小图片来适应元素的尺寸（可以保持图像的宽高比）-->
+<!--</div>-->
+<!--<div class="background-size-3">-->
+<!--    background-size: cover;     图片会随着更大的属性进行等比例缩放-->
+<!--</div>-->
+<div class="background-size-4">
+    background-size: contain;
+    background-position: center center;
+    可以让背景图片居中
+</div>
+</body>
+</html>

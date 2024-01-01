@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例7：Position+Margin实现的左中右布局(不使用浮动)</title>
+    <style type="text/css">
+        .container{
+            position: relative;
+            width: 960px;
+            margin: 0 auto;
+            min-height: 800px;
+            border: cadetblue solid 1px;
+        }
+        .container > .side-left, .container > .side-right{
+            position: absolute;
+            width: 200px;
+            height: 800px;
+            top: 0;
+            background: darksalmon;
+        }
+        .container > .side-left{
+            left: 0;
+        }
+        .container > .side-right{
+            right: 0;
+        }
+        /* 让中间层自适应 */
+        .container > .main{
+            height: 800px;
+            margin: 0 200px;
+            background: bisque;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="side-left">side-left</div>
+    <div class="main">main</div>
+    <div class="side-right">side-right</div>
+</div>
+</body>
+</html>

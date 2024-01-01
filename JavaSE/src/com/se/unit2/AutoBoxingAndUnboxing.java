@@ -50,8 +50,8 @@ public class AutoBoxingAndUnboxing {
         Integer i = null;
         int j = 1;
         //类型对齐
-        int m = false ? j : i;
         int k = true ? i : j;
+        int m = false ? j : i;
 
     }
 

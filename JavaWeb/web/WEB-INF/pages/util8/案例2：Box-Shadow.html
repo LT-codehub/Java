@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子阴影 日式风格的配色网站分享：https://nipponcolors.com/</title>
+    <style type="text/css">
+        body{
+            height: 350vh;  /* view height 视口的高度*/
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border: #ff2200 dotted 1px;
+        }
+        .box-shadow-1{
+            /* offset-x(x轴偏移量) offset-y 阴影颜色color */
+            box-shadow: 60px -20px #B1B479;
+        }
+        .box-shadow-2{
+            /* offset-x(x轴偏移量) offset-y 阴影的模糊半径(blur-radius) 阴影颜色color */
+            box-shadow: 10px -5px 25px #E87A90;
+        }
+        .box-shadow-3{
+            /* x/y的偏移量 阴影的模糊半径 阴影的扩散半径 阴影的颜色 */
+            /* 模糊半径：blur-radius 值越大，阴影就越大且淡，不能为负*/
+            /* 扩散半径：spread-radius 取正值时，阴影扩大；值为负时，阴影缩小 */
+            box-shadow: -20px 20px 20px 20px rgba(247, 92, 47, 0.6);
+        }
+        .box-shadow-4{
+            /* inset 设置阴影为向内扩散 */
+            /* 5em表示5倍当前的字号 */
+            box-shadow: inset 5em 1em gold;
+        }
+        .box-shadow-5{
+            margin-top: 100px;
+            box-shadow: -20px 0 20px 20px red,
+                        20px 0 20px 20px blue,
+                        0px 50px 50px orange,
+                        0px -20px 20px black;
+        }
+        .box-shadow-6{
+            position: relative;
+            width: 350px;
+            background-color: #cccccc;
+            text-align: center;
+            line-height: 36px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3),
+                        inset 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .box-shadow-6:before, .box-shadow-6:after{
+            content: "";
+            position: absolute;
+            width: 175px;
+            height: 100px;
+            left: 10px;
+            bottom: 15px;
+            box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+            transform: rotate(-3deg);   /* 旋转-3度 */
+            z-index: -1;/* Z轴坐标越小，离用户越远 */
+        }
+        .box-shadow-6:after{
+            right: 10px;
+            left: auto;
+            transform: rotate(3deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box-shadow-1"></div>
+<div class="box-shadow-2"></div>
+<div class="box-shadow-3"></div>
+<div class="box-shadow-4">向内扩散的阴影</div>
+<div class="box-shadow-5"></div>
+<h1>下面是阴影的实例</h1>
+<div class="box-shadow-6">逼真的阴影效果</div>
+<div class="box-shadow7"></div>
+<style>.box-shadow7{/* 纯赏析即可 */
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: none;
+    box-shadow:
+            inset 0 0 50px #fff,      /* inner white */
+            inset 20px 0 80px #f0f,   /* inner left magenta short */
+            inset -20px 0 80px #0ff,  /* inner right cyan short */
+            inset 20px 0 300px #f0f,  /* inner left magenta broad */
+            inset -20px 0 300px #0ff, /* inner right cyan broad */
+            0 0 50px #fff,            /* outer white */
+            -10px 0 80px #f0f,        /* outer left magenta */
+            10px 0 80px #0ff;         /* outer right cyan */
+}</style>
+
+</body>
+</html>
