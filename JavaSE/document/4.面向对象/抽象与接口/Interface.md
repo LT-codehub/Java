@@ -6,7 +6,7 @@
 3. 如何定义接口：定义接口中的成员
    1. JDK7及以前：只能定义全局常量和抽象方法
       1. 全局常量：`public static final`的。但是书写时，可以省略不写
-      2. 抽象方法：`public abstract`的
+      2. 抽象方法：`public abstract`的，但是书写时，可以省略不写
    2. JDK8：除了定义全局常量和抽象方法之外，还可以定义**静态方法**、**默认方法**
       1. 接口可以包含实现方法，需要使用`default修饰`，此类方法称为默认方法。默认方法`必须提供实现`，在实现类中可以按需重写。
 4. 接口中不能定义构造器的！意味着接口不可以实例化 
@@ -35,10 +35,25 @@ class Computer{
 
 interface USB{
     //常量：定义了长、宽、最大最小的传输速度等
-
+    //反编译其实际是由public static final修饰的
+    int  USB_MAX_DATA_RATE = 10000;
+    
+    //反编译其本质：public abstract void start();
     void start();
 
     void stop();
+    
+    //默认方法，可以由实现类对其进行重写
+    //反编译其本质：public default void hello(){
+    default void hello(){
+        System.out.println("hello");
+    }
+    
+    //静态方法
+    
+    static void staticHello(){
+        System.out.println("static hello");
+    }
 
 }
 
