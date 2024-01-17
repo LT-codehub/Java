@@ -1,4 +1,4 @@
-package com.se.unit3;
+package com.se.unit3.array;
 
 /**
  * 二维数组
