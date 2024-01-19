@@ -19,6 +19,12 @@ public class CallableTest implements Callable<String> {
 
     public static void main(String[] args) {
 
+        Integer integer = 1;
+        Integer i = new Integer(1);
+
+        System.out.println(integer);
+        System.out.println(i);
+
         CallableTest callableTest = new CallableTest();
         FutureTask<String> futureTask = new FutureTask<String>(callableTest);
         try {

@@ -41,7 +41,7 @@ public class Goods implements  Comparable{
 ```
 # 排序：使用Comparator接口
 **定制排序是应该叫做`临时排序规则`更为准确**
-## **使用方式**
+##使用方式
 
 1. **直接<font color="#006e54">实现Comparator接口</font>**
 2. 重写`compare()方法`
@@ -68,4 +68,6 @@ Comparator com = new Comparator() {
 }
 ```
 
-
+#使用说明
+自然排序作为类的默认排序规则，一般由排序类直接实现
+定制排序作为临时排序规则，一般临时作为匿名类使用
