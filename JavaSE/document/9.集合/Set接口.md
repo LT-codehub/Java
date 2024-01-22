@@ -10,7 +10,7 @@ Set接口中没额外定义新的方法，使用的都是Collection中声明过�
       - HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
       - LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
          - 在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个数据和后一个数据。 对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
-      - TreeSet：可以照添加对象的指定属性，进行排序。
+      - TreeSet：可以照添加对象的指定属性，进行排序。底层使用红黑树结构存储数据
 # HashSet
 HashSet底层：数组+链表的结构
 ### 元素的添加

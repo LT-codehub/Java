@@ -1,4 +1,4 @@
-package com.se.unit12;
+package com.se.unit9;
 
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import java.util.Properties;
  * @description: TODO
  * @date 2023/9/16 21:49
  */
-public class CollectionTest {
+public class PropertiesTest {
     @Test
     public void test(){
         ArrayList<Integer> list = new ArrayList<>();

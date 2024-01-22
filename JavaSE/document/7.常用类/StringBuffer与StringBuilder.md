@@ -88,4 +88,5 @@ private AbstractStringBuilder appendNull() {
 * 遍历：for() + charAt() / toString()
 
 #注意
-向StringBuffer、StringBuilder的添加空对象，相当于添加了一个`null`字符串
+* 向StringBuffer、StringBuilder的添加空对象，相当于添加了一个`null`字符串
+* 无法使用char创建StringBuffer、StringBuilder对象，只能使用append()方法添加

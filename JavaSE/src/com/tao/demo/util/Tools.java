@@ -28,14 +28,14 @@ public class Tools {
 
    public static String generateRandomName() {
 
-       String firstName = FIRST_NAMES[random.nextInt(FIRST_NAMES.length)];
+       StringBuffer name = new StringBuffer(FIRST_NAMES[random.nextInt(FIRST_NAMES.length)]);
 
-       String lastName = ""+generateRandomChinese();
+       StringBuffer lastName = new StringBuffer().append(generateRandomChinese());
        if (random.nextInt(2) == 1) {
-           lastName += generateRandomChinese();
+           lastName.append(generateRandomChinese());
        }
 
-       return lastName + firstName;
+       return name.append(lastName).toString();
    }
 
    /**

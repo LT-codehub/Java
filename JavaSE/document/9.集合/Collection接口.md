@@ -13,11 +13,14 @@
 * `clear()`：清空集合
 * `contains(Object obj)`/`containsAll(Collection coll)`：是否包含某个元素/某些元素
 * `remove(Object obj)`/`removeAll(Collection coll)`：从集合中删除某个元素/某些元素
+* `removeIf`(Predicate<? super E> filter):删除满足给定谓词的此集合的所有元素。
 * `retainsAll(Collection coll)`：从本集合中删除coll集合元素外的所有元素
 * `equals(Object obj)`：是否相等
 * `hasCode()`：返回哈希值
 * `toArray()`：返回一个集合元素的数组
 * `iterator()`：返回一个迭代器
+
+
 ## 集合与数组的转换
 
 1. 集合转数组

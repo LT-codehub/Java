@@ -24,5 +24,7 @@ public class StringBufferAndStringBuilder {
         }
         System.out.println(buffer.toString());
 
+        StringBuffer test = new StringBuffer('a');//使用char创建为空字符串
+        StringBuffer test1 = new StringBuffer();
     }
 }

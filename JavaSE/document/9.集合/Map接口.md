@@ -5,11 +5,11 @@
 
 - Map:双列数据，存储key-value对的数据   ---类似于高中的函数：y = f(x)
      - `HashMap`:作为Map的主要实现类；线程不安全的，效率高；存储null的key和value
-      - `LinkedHashMap`:保证在遍历map元素时，可以照添加的顺序实现遍历。
-       - 原因：在原的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。对于频繁的遍历操作，此类执行效率高于HashMap。
-      - `TreeMap`:保证照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序底层使用红黑树
-      - `Hashtable`:作为古老的实现类；线程安全的，效率低；不能存储null的key和value
-      - `Properties`:常用来处理配置文件。key和value都是String类型
+        - `LinkedHashMap`:保证在遍历map元素时，可以照添加的顺序实现遍历。
+            - 原因：在原的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。对于频繁的遍历操作，此类执行效率高于HashMap。 
+     - `Hashtable`:作为古老的实现类；线程安全的，效率低；不能存储null的key和value
+         - `Properties`:常用来处理配置文件。key和value都是String类型
+     - `TreeMap`:保证照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序底层使用红黑树
 ## 存储结构的理解
 
 - Map中的key：无序的、不可重复的，使用Set存储所的key  ---> key所在的类要重写equals()和hashCode() （以HashMap为例)
@@ -146,5 +146,13 @@ public static void main(String[] args)  {
 
 1. HashMap的底层实现原理？
 2. HashMap 和 Hashtable的异同？
+   * HashMap:底层是一个哈希表（jdk7:数组+链表;jdk8:数组+链表+红黑树）,是一个线程不安全的集合,执行效率高 
+   * Hashtable:底层也是一个哈希表（数组+链表）,是一个线程安全的集合,执行效率低 
+    * HashMap集合:可以存储null的键、null的值 
+    * Hashtable集合,不能存储null的键、null的值 
+    * Hashtable和Vector集合一样,在jdk1.2版本之后被更先进的集合(HashMap,ArrayList)取代了。所以HashMap是Map的主要实现类，
+      Hashtable是Map的古老实现类。 
+    * Hashtable的子类Properties（配置文件）依然活跃在历史舞台 
+        * Properties集合是一个唯一和IO流相结合的集合
 3. CurrentHashMap 与 Hashtable的异同？（暂时不讲)
 

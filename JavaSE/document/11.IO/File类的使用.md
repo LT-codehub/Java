@@ -18,15 +18,37 @@
 * `File(URI uri)`  
 通过将给定的file: URI转换为抽象路径名来创建新的 File实例
 ## 路径的分类
-
-- 相对路径：相较于某个路径下，指明的路径。
+- 绝对路径：包含盘符在内的文件或文件目录的路径，或者说以整个系统作为参照，来表示当前文件或文件夹的路径
+    - 绝对路径名是完整的，因为不需要其他信息来定位其表示的文件
+- 相对路径：以某个路径作为参照，来表示当前文件或文件夹的路径。
    - 相对路径名必须根据从其他路径名获取的信息进行解释
-   - **File对象会默认以当前项目的项目目录，作为相对路径的参考或者说前缀**
-- 绝对路径：包含盘符在内的文件或文件目录的路径
-   - 绝对路径名是完整的，因为不需要其他信息来定位其表示的文件
+        1. **File对象会默认以`当前项目目录`，作为相对路径的基准路径**
+        2. **在Junit中File对象会默认以`当前模块`，作为相对路径的基准路径**。
+     <font color="red">默认情况下，java.io包中的类始终会**根据当前用户目录**解析相对路径名。 该目录由系统属性`user.dir`，通常是调用Java虚拟机的目录，也就是**当前的项目目录。**
+     </font>    
+###区别
+绝对路径和相对路径最大的区别就是`参照路径不同`
+####相对路径表示
+相对路径是相对于当前工作目录或另一个基准路径而言的路径表示法。它指定如何从当前位置或基准位置导航到目标文件或目录。
 
-<font color="red">默认情况下，java.io包中的类始终会**根据当前用户目录**解析相对路径名。 该目录由系统属性`user.dir`，通常是调用Java虚拟机的目录，也就是**当前的项目目录。**
-</font>
+
+1. **相对于当前工作目录：**
+    - 在大多数情况下，相对路径是相对于当前工作目录的。例如：
+        - `file.txt`：表示当前工作目录下的文件。
+        - `images/photo.jpg`：表示当前工作目录下的 images 子目录中的 photo.jpg 文件。
+
+2. **使用 `..` 表示上级目录：**
+    - `../folder/file.txt`：表示当前目录的上一级目录中的 folder 子目录下的 file.txt 文件。
+
+3. **使用 `.` 表示当前目录：**
+    - `./subfolder/file.txt`：表示当前目录下的 subfolder 子目录中的 file.txt 文件。
+
+4. **相对于类路径（在 Java 或类似环境中）：**
+    - 在 Java 等环境中，相对路径可以相对于类路径。例如：
+        - `resources/config.properties`：表示类路径下的 resources 目录中的 config.properties 文件。
+
+请注意，相对路径的基准点取决于当前执行程序的上下文。在不同的操作系统和应用程序中，相对路径的含义可能会有所不同。因此，确保了解当前工作目录或基准路径，以正确构造相对路径。
+
 ```java
 @Test
     public void test(){
@@ -35,6 +57,7 @@
             file.mkdirs();
         }
         System.out.println("file.getPath() = " + file.getPath());
+        //当我们不清楚当前相对路径的基准路径时，可以通过获取绝对路径来确定
         System.out.println("file.getAbsolutePath() = " + file.getAbsolutePath());
     }
 ```
@@ -108,7 +131,7 @@ ClassLoader.getResourceAsStream(filePath)
 //【在IDEA的开发环境中要求要在Sources和Resources级别的目录下】
 
 // 注意这里的包路径与我们上面描述的项目结构一致
-        package com.northcastle.file;
+package com.northcastle.file;
 
 import java.io.IOException;
 import java.io.InputStream;
