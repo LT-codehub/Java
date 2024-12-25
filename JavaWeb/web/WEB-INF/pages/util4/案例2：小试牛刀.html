@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用CSS修饰一篇B占的文章</title>
+    <style type="text/css">
+        .container{
+            width: 1077px;
+            /* 实现当前容器的居中效果 */
+            margin: 0 auto;
+            border: 1px dotted orangered;
+        }
+        /* 根据当前的业务需求，我们判断应该使用哪种选择器？ */
+        .title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+        }
+        /* 我们发现，这里如果使用元素选择器其实并不好 */
+        .myspan{
+            color: #9b9b9b;
+        }
+        /* id选择器的优先级最高，仍然没有行内样式高；元素选择器的优先级最低 */
+        #myspan{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<article class="container">
+    <h1 class="title">二十多年后，人人都爱汤姆猫</h1>
+    <p>
+        <span class="myspan" id="myspan">日常</span>
+        <span class="myspan">4-2</span>
+        <span class="myspan">9515阅读503点赞55评论</span>
+    </p>
+</article>
+<div class="container">
+    <h1 class="title">二十多年后，人人都爱汤姆猫</h1>
+    <p>
+        <span class="myspan">日常</span>
+        <span class="myspan">4-2</span>
+        <span class="myspan">9515阅读503点赞55评论</span>
+    </p>
+</div>
+</body>
+</html>

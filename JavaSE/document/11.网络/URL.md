@@ -1,10 +1,10 @@
 # URL(Uniform Resource Locator)
 统一资源定位符，对应着互联网的某一资源地址
 ## URL的5个基本结构：
-`协议``://``主机名``:``端口号``资源地址``?``参数列表`
+`协议` `://` `主机名` `:` `端口号` `资源地址` `?` `参数列表`
 
 | [http://localhost:8080/examples/beauty.jpg?username=Tom](http://localhost:8080/examples/beauty.jpg?username=Tom) |  |  |  |  |
-| --- | --- | --- | --- | --- |
+| :---: | :---: | :---: | :---: | :---: |
 | `协议` | `主机名` | `端口号` | `资源地址` | `参数列表` |
 | [http](http://localhost:8080/examples/beauty.jpg?username=Tom) | localhost | 8080 | /examples/beauty.jpg | username=Tom |
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>html5</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<h1>canvas画图</h1>
+<canvas id="myCanvas" width="200" height="100"
+        style="border:1px solid #000000;">
+</canvas>
+<script>
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    ctx.fillStyle="#FF0000";
+    ctx.fillRect(0,0,150,75);
+</script>
+<hr/>
+<h1>svg画图</h1>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+</svg>
+<hr/>
+<h1>视频</h1>
+<video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+</video>
+<hr/>
+<h1>音频</h1>
+<audio controls>
+    <source src="horse.ogg" type="audio/ogg">
+    <source src="horse.mp3" type="audio/mpeg">
+</audio>
+<hr/>
+</body>
+</html>

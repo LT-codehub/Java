@@ -10,18 +10,18 @@ Set接口中没额外定义新的方法，使用的都是Collection中声明过�
       - HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
       - LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
          - 在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个数据和后一个数据。 对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
-      - TreeSet：可以照添加对象的指定属性，进行排序。
+      - TreeSet：可以照添加对象的指定属性，进行排序。底层使用红黑树结构存储数据
 # HashSet
 HashSet底层：数组+链表的结构
 ### 元素的添加
 
-1. `**计算哈希值**`：调用元素的`hashCode()`计算哈希值
-2. `**计算位置**`：根据哈希值计算在数组中存放的位置(**不同的哈希值也可能计算出同一位置**)
-3. `**添加元素**`：四种情况
-   1. 该位置`**没有元素**`，添加**成功**
-   2. 该位置`**有元素**`，比较哈希值，`**哈希值不同**`则添加**成功**
-   3. 该位置`**有元素**`，比较哈希值，`**哈希值相同**`，再用equals()比较内容，`**内容不同**`则添加**成功**
-   4. 该位置`**有元素**`，比较哈希值，`**哈希值相同**`，再用equals()比较内容，`**内容相同**`则添加**失败**
+1. `计算哈希值`：调用元素的`hashCode()`计算哈希值
+2. `计算位置`：根据哈希值计算在数组中存放的位置(**不同的哈希值也可能计算出同一位置**)
+3. `添加元素`：四种情况
+   1. 该位置`没有元素`，添加**成功**
+   2. 该位置`有元素`，比较哈希值，`哈希值不同`则添加**成功**
+   3. 该位置`有元素`，比较哈希值，`哈希值相同`，再用equals()比较内容，`内容不同`则添加**成功**
+   4. 该位置`有元素`，比较哈希值，`哈希值相同`，再用equals()比较内容，`内容相同`则添加**失败**
 ```java
 我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，
 此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置，判断
@@ -48,9 +48,9 @@ jdk 8 :原来的元素在数组中，指向元素a
 # HashSet&LinkedHashSet存储对象所在类的要求
 重写equals()方法：判断对象是否相等
 
-- `**引用是否相等(是否同一个对象)**`
-- `**所属类是否相同**`
-- `**实际内容是否相同**`
+- `引用是否相等(是否同一个对象)`
+- `所属类是否相同`
+- `实际内容是否相同`
 
 重写hashCode()方法：相等的对象必须具有相等的散列码
 
@@ -120,7 +120,7 @@ public class EntryTest {
 ```
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1694876361913-4ae3dc00-6026-4c23-8cda-7e5c58f27e0d.png#averageHue=%236d8b80&clientId=u093771ce-cbac-4&from=paste&height=381&id=uc564e385&originHeight=381&originWidth=888&originalType=binary&ratio=1&rotation=0&showTitle=false&size=138534&status=done&style=none&taskId=u2068d77a-cfca-42f9-8f19-69bbb930166&title=&width=888)
 # TreeSet
- TreeSet底层使用`**红黑树**`结构存储数据 
+ TreeSet底层使用`红黑树`结构存储数据 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1694877489106-38e52e0c-6a1c-49f6-ab52-c260d6ff14f6.png#averageHue=%23f3efef&clientId=u093771ce-cbac-4&from=paste&height=395&id=ufa91561d&originHeight=395&originWidth=923&originalType=binary&ratio=1&rotation=0&showTitle=false&size=116639&status=done&style=none&taskId=uc02d30bf-e758-4721-a612-bb40986ea44&title=&width=923)
 红黑树是一种自平衡的查找树
 

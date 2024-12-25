@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡效果</title>
+    <style type="text/css">
+        .transition-1, .transition-2{
+            width: 300px;
+            height: 300px;
+            border: 1px dotted red;
+            background-color: white;
+            /*transition: background-color 2s ease-in-out 0s;*/
+            /*transition-property: background-color;*/
+            transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: ease-out;
+            /*transition-delay: 3s;*/
+        }
+        .transition-1:hover{
+            background-color: #ff7f00;
+        }
+        .transition-2:hover{
+            background-color: #ff2200;
+            width: 800px;
+            height: 500px;
+            font-size: 48px;
+        }
+        @keyframes bezier-test {
+            from {background-color: white;}
+            to   {background-color: #ff2200;}
+        }
+        .transition-3{
+            width: 300px;
+            width: 300px;
+            height: 300px;
+            border: 1px dotted red;
+            background-color: white;
+            /*animation-timing-function: cubic-bezier(0, 0, 1, 1);    对应linear*/
+            animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);  /* 对应ease效果 */
+            animation: bezier-test 5s infinite;
+        }
+
+    </style>
+</head>
+<body>
+<div class="transition-1"></div>
+<div class="transition-2">多个属性一起变换</div>
+<img src="images/贝塞尔曲线.jpg" />
+<div class="transition-3">
+    <div>
+        直接调用贝塞尔曲线实现的效果
+    </div>
+</div>
+</body>
+</html>

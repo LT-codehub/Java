@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例1：三种样式引入方式的区别</title>
+    <!-- 以链接的方式引入外部样式文件 -->
+    <link href="案例1：三种样式引入方式的区别.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        /* 使用导入的方式引入外部样式文件 */
+        @import "案例1：三种样式引入方式的区别.css";
+    </style>
+</head>
+<body>
+<!-- 第一种：行内样式 优先级最高
+    直接在标签内，书写style属性的值
+-->
+<p style="color:red;">
+    行内样式修饰的p标签
+</p>
+<!--
+    第二种：内嵌样式表
+    <style>标签，可以放置在HTML文档的任意位置
+-->
+<style type="text/css">
+    /* 如果选择器的名称是html的标签，那么就会修改整个页面的所有同名标签的默认样式 */
+    #inner{
+        color: blue;
+    }
+</style>
+<p id="inner">
+    使用内嵌样式修饰的p标签
+</p>
+<!-- 第三种：外部样式 优先级最低 - 推荐使用 -->
+<p class="classDemo">
+    以链接的方式引入外部样式文件修饰的p标签
+</p>
+
+<p class="ClassDEMO2">
+    以导入的方式引入外部样式文件修饰的p标签
+</p>
+</body>
+</html>

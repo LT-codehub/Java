@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TapTap头像页</title>
+    <style type="text/css">
+        body{
+            margin: 0; padding: 0;
+            height: 100vh;
+            background: linear-gradient(to left top, #14b9c8, #6dc8c7);
+        }
+        .container{
+            /* 1vh/vw就是当前屏幕可见高度/宽度的1% */
+            /* height: 100vh == height: 100% */
+            width: 50vw;    /* view width */
+            height: 50vh;
+            margin: 150px auto;
+        }
+        .container>h1{
+            color: white;
+            font-size: 50px;
+            text-shadow: 0 -1px 0 #128897, 1px 0px 0 #128897,
+                         0 1px 0 #128897, -1px 0px 0 #128897;
+            text-shadow: 0 -2px 0 #128897, 2px 0px 0 #128897,
+                         0 2px 0 #128897, -2px 0px 0 #128897;
+        }
+        .container>p{
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px 1px #128897;
+        }
+        .container div.head{
+            width: 100px;
+            height: 100px;
+            background-image: url("images/head.jpg");
+            background-size: contain;
+            border-radius: 50%;
+            border: white solid 4px;
+            box-shadow: 0 0 6px 1px #128897;
+            /* 为了不破坏整体布局，这里建议将盒模型修改为IE盒模型 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>TapTap</h1>
+    <p>即刻加入游戏狂热者行列</p>
+    <div class="head"></div>
+</div>
+</body>
+</html>

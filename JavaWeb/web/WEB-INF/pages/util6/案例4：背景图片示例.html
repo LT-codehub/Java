@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /* 为了让地板砖铺满整个界面，我们为body标签设置背景图片属性 */
+        body{
+
+            /* 让背景图片横向/纵向重复 */
+            /*background-repeat: repeat-y;*/
+        }
+        .land{
+            width: 100%;
+            min-height: 350px;
+            background-image: url("images/bg/bg1.gif");
+        }
+        .land .mine-repeat-x{
+            width: 205px;
+            min-height: 46px;
+            background-image: url("images/block/mine.gif");
+            background-repeat: repeat-x;
+        }
+        .land .mine-repeat-y-left{
+            width: 100px;
+            min-height: 92px;
+            background-image: url("images/block/mine.gif");
+            background-repeat: repeat-y;
+            float: left;
+            border: 1px dotted blueviolet;
+        }
+        .land .mine-repeat-y-right{
+            width: 105px;
+            min-height: 92px;
+            background-image: url("images/block/mine.gif");
+            background-repeat: repeat-y;
+            /*background-position-x: 60px;*/
+            background-position-x: right;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div class="land">
+    <div class="mine-repeat-x"></div>
+    <div>
+        <!-- 实现9的上部分 -->
+        <div class="mine-repeat-y-left"></div>
+        <div class="mine-repeat-y-right"></div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+</body>
+</html>

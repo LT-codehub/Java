@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>线性渐变示例</title>、
+    <style type="text/css">
+        div{width:900px; height:150px;border: orangered dotted 1px;}
+        .linear-gradient-1{
+            /* 从下到上的渐变、从白色到黑色 */
+            background: linear-gradient(to top, white, black);
+            background: -webkit-gradient(linear, left bottom, left top, from(white), to(black));
+            background: -o-linear-gradient(bottom, white, black);
+        }
+        .linear-gradient-2{
+            background: linear-gradient(to top left, yellow, red);
+        }
+        .linear-gradient-3{
+            /* 彩虹色渐变：赤橙黄绿青蓝紫 */
+            background: linear-gradient(to right, #ff0000 121px, #ff7f00 242px,
+                                                  #ffff00 363px, #00ff00 484px,
+                                                  #00ffff 605px, #0000ff 726px,
+                                                  #8b00ff 847px);
+        }
+        .linear-gradient-4{
+            background: linear-gradient(90deg, black 0%, black 25%, white 25%,
+                                               white 50%, black 50%, black 75%,
+                                               white 75%, white 100%);
+        }
+    </style>
+</head>
+<body>
+<!--
+    linear-gredient(angle | to side-or-corner, color length, color length
+    to left:    设置渐变方向从右向左，相当于270deg
+    to right:   设置渐变方向从左向右，相当于90deg
+    to top:     设置渐变的方向从下到上，相当于0deg
+    to bottom:  默认值，相当于180deg
+-->
+<div class="linear-gradient-1"></div>
+<div class="linear-gradient-2">对角线渐变</div>
+<div class="linear-gradient-3">不同颜色的渐变效果</div>
+<div class="linear-gradient-4">
+    特殊的渐变效果：颜色之间直接变换，不再有中间的过渡色<br/>
+    实现思路：下一个颜色在上一个颜色开始的位置
+</div>
+</body>
+</html>

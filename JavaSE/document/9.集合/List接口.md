@@ -1,5 +1,6 @@
+
 # 存储的数据特点：有序的、可重复的数据
-List集合类中元素有序、且可重复，集合中的每个元素都有其对应的**顺序索引**。`**储存顺序**`  
+List集合类中元素有序、且可重复，集合中的每个元素都有其对应的**顺序索引**。`储存顺序`  
 **List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号存取容器中的元素。**  
 # 常用方法
 
@@ -48,8 +49,8 @@ list.add(123);//第一次调用add()时，底层才创建了长度10的数组，
 ...
 后续的添加和扩容操作与jdk 7 无异。
 ```
-**JDK7中的ArrayList的对象的创建类似于单例的**`**饿汉式**`
-**JDK8中的ArrayList的对象的创建类似于单例的**`**懒汉式**`**，延迟了数组的创建，节省内存。**
+* **JDK7中的ArrayList的对象的创建类似于单例的`饿汉式`**
+* **JDK8中的ArrayList的对象的创建类似于单例的`懒汉式`，延迟了数组的创建，节省内存。**
 
 # LinkedList
 ## 源码分析
@@ -79,8 +80,8 @@ list.add(123);//第一次调用add()时，底层才创建了长度10的数组，
 **添加的对象，所在的类要重写equals()方法**
 # 面试题
 ArrayList、LinkedList、Vector者的异同？
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/28932072/1694874701728-7bc48396-1cd7-4b64-93bd-8d8e121a30f6.png#averageHue=%23d0d079&clientId=u03b8abc1-283c-4&from=paste&height=395&id=u1b1101f6&originHeight=395&originWidth=861&originalType=binary&ratio=1&rotation=0&showTitle=false&size=189927&status=done&style=none&taskId=ue424c86a-b5ea-4037-a01c-4f5e608419e&title=&width=861)
-同：三个类都是实现了List接口，存储数据的特点相同：存储序的、可重复的数据
+![image.png](image/img_2.png)
+同：三个类都是实现了List接口，存储数据的特点相同：存储有序、可重复的数据
 不同：见上（第3部分+第4部分）
 
 

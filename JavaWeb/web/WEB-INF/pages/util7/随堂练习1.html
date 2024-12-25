@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随堂练习1</title>
+    <style type="text/css">
+        ul{
+            list-style-type: circle;
+            /*padding: 0;*/
+            margin: 0;
+        }
+        ul li>a{
+            color: black;
+            font-size: 14px;
+            line-height: 24px;
+            text-decoration: none;
+        }
+        ul li>a:hover{
+            text-decoration: underline;
+        }
+        /* 特别说明：以下代码仅为了练习不同选择器的作用 */
+        ul li.pink>a{
+           color: hotpink;
+        }
+        ul li.pink_bolder>a{
+            font-weight: bold;
+            color: hotpink;
+        }
+
+        ul li.pink_bolder1 ~ li>a{
+            color: deeppink;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="pink"><a href="#">【致新人】剑网3入门指南（新入...</a></li>
+    <li class="pink_bolder"><a href="#">剑网三生活技艺攻略、赚钱攻略导航...</a></li>
+    <li class="pink"><a href="#">【截图讲故事】你见过一个道姑装...</a></li>
+    <li><a href="#">【致新人】剑网3入门指南（新入...</a></li>
+    <li class="pink_bolder1"><a href="#">【致新人】剑网3入门指南（新入...</a></li>
+    <li><a href="#">【致新人】剑网3入门指南（新入...</a></li>
+    <li><a href="#">【致新人】剑网3入门指南（新入...</a></li>
+</ul>
+</body>
+</html>

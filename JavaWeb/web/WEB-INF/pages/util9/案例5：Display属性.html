@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display属性</title>
+</head>
+<body>
+<!--
+    display: none;      在浏览器中消除该元素，不占屏幕的空间
+    visibility: hidden; 隐藏该元素，但是它还占有这块空间
+-->
+<!--
+    none            元素不会被显示
+    block           元素显示为块级元素，元素的前后都带有换行符
+    inline          默认值，元素显示为行内元素，元素前后没有换行符
+                    默认情况下，img和input为行级元素
+    inline-block    行级的块元素，css2.1中新增
+
+-->
+<style type="text/css">
+    .display-1{
+        width: 800px;
+        margin-top: 50px;
+        border: orangered dotted 1px;
+    }
+    .display-1:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .display-1 > span{
+        /* 给一个行级元素设置block，就将行级元素转换成了块级元素 */
+        display: block;
+        width: 150px;
+        height: 50px;
+        border: orangered dotted 1px;
+    }
+    .display-1 > p{
+        display: inline;
+    }
+    .display-1 > button{
+        /* 当给一个行级元素设置浮动后，这个元素也自动被转换成了块级元素 */
+        float: left;
+        width: 150px;
+        height: 50px;
+    }
+
+</style>
+<div class="display-1">
+
+
+    <p>块级元素：p</p>
+    <p>块级元素：p</p>
+    <span>行级元素：span</span>
+    <button>行级元素：button</button>
+    <strong>行级元素：strong</strong>
+</div>
+
+<style type="text/css">
+    .display-2{
+        width: 800px;
+        margin-top: 50px;
+        border: orangered dotted 1px;
+    }
+    .display-2 > p, .display-2 > span{
+        border: orangered dotted 1px;
+        display: inline-block;
+    }
+    /*.display-2:after{*/
+    /*    content: "";*/
+    /*    display: block;*/
+    /*    clear: both;*/
+    /*}*/
+</style>
+<!-- 解决空格的bug方案1：代码中去掉换行 -->
+<div class="display-2">
+    <p>块级元素：p</p><span>行级标签：span</span>
+</div>
+<!-- 解决空格的bug方案2：使用跨行的注释 -->
+<div class="display-2">
+    <p>块级元素：p</p><!--
+    --><span>行级标签：span</span>
+</div>
+<!-- 解决空格的bug方案3： 设置margin-left为负值，不推荐 -->
+<!--<div class="display-2">-->
+<!--    <p>块级元素：p</p>-->
+<!--    <span>行级标签：span</span>-->
+<!--</div>-->
+<!-- 解决空格的bug方案4：给父元素添加font-size: 0; -->
+<style type="text/css">
+    .display-4{
+        width: 800px;
+        margin-top: 50px;
+        font-size: 0;
+        border: orangered dotted 1px;
+    }
+    .display-4 > p, .display-4 > span{
+        display: inline-block;
+        /* 子元素记得改回原始的值 */
+        font-size: 14px;
+    }
+</style>
+<div class="display-4">
+    <p>块级元素：p</p>
+    <span>行级标签：span</span>
+</div>
+
+<!-- 解决空格的bug方案5：给父元素添加letter-spacing 为负值 -->
+<style type="text/css">
+    .display-5{
+        width: 800px;
+        margin-top: 50px;
+        letter-spacing: -100px;
+        border: orangered dotted 1px;
+    }
+    .display-5 > p, .display-5 > span{
+        display: inline-block;
+        /* 子元素记得改回原始的值 */
+        letter-spacing: 0;
+    }
+</style>
+<div class="display-5">
+    <p>块级元素：p</p>
+    <span>行级标签：span</span>
+</div>
+
+<!--
+    list-item           元素会作为列表显示
+    table               元素作为表格显示，类似<table>
+    table-row           <tr>
+    table-row-group     <tbody>
+ -->
+<style type="text/css">
+    .display-table{
+        width: 450px;
+        border: orange solid 1px;
+    }
+    div.display-table{
+        display: table;
+    }
+    .display-table > h3{
+        display: table-caption;
+    }
+    .display-table > p{
+        display: table-row;
+    }
+    .display-table div{
+        /* <td> / <th> */
+        display: table-cell;
+        color: red;
+    }
+</style>
+<div class="display-table">
+    <h3>表格的标题</h3>
+    <p>
+        <div>第一个单元格</div>
+        <div>第二个单元格</div>
+        <div>第三个单元格</div>
+    </p>
+    <p>
+        <div>第一个单元格</div>
+        <div>第二个单元格</div>
+        <div>第三个单元格</div>
+    </p>
+    <p>
+        <div>第一个单元格</div>
+        <div>第二个单元格</div>
+        <div>第三个单元格</div>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关系选择器示例</title>
+    <style type="text/css">
+        .container{
+            width: 500px;
+            min-height: 350px;
+            border: darkorange dotted 1px;
+        }
+        /* 包含选择器：.container下面的所有后代都会匹配此样式 */
+        /*.container div{*/
+        /*    min-height: 150px;*/
+        /*    border: darkred dotted 1px;*/
+        /*}*/
+        /* 子选择器：只会匹配直接的后代元素 */
+        /*.container>div{*/
+        /*    min-height: 150px;*/
+        /*    border: darkred dotted 1px;*/
+        /*}*/
+        /* 相邻选择器：1、紧接在一个元素之后；2、二者要有相同的父元素 */
+        /*.container-2 + div{*/
+        /*    min-height: 150px;*/
+        /*    border: darkred dotted 1px;*/
+        /*}*/
+        /*兄弟选择器：会匹配当前选择器的所有兄弟元素  */
+        .container-1 ~ div{
+            min-height: 150px;
+            border: darkred dotted 1px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="container-1">
+        <div class="container-1-1">container-1-1</div>
+        <div class="container-1-2">container-1-2</div>
+    </div>
+    <div class="container-2">
+        <div class="container-2-1">container-2-1</div>
+        <div class="container-2-2">container-2-2</div>
+    </div>
+    <div class="container-3">
+        <div class="container-3-1">container-3-1</div>
+        <div class="container-3-2">container-3-2</div>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

@@ -19,8 +19,9 @@ while(iterator.hasNext()){
 ```
 ## 实现原理
 
-2.5图示说明：
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655990489280-324a9d8c-7eb2-467f-9097-cae5e606e4f4.png#averageHue=%23e3e7f0&clientId=u5cc240b9-3703-4&from=paste&height=391&id=OR2O9&originHeight=391&originWidth=761&originalType=binary&ratio=1&rotation=0&showTitle=false&size=28163&status=done&style=none&taskId=u0536787d-1405-4c4a-998b-36cec9393b9&title=&width=761)
+图示说明：
+
+![image.png](image/img.png)
 ## remove()的使用
 因为`next()`方法的原理连续调用`remove()`方法会报错(感觉是废话)
 ```java

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--标题log-->
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <meta charset="UTF-8">
+    <title>HTML标签</title>
+</head>
+<body>
+<!--一级标签到六级标签-->
+<h1>H1-H6标签</h1>
+<h1>一级标签</h1>
+<h2>二级标签</h2>
+<h3>三级标签</h3>
+<h4>四级标签</h4>
+<h5>五级标签</h5>
+<h6>六级标签</h6>
+<hr/>
+
+<h1>文本标签</h1>
+<!--文本标签-->
+<p>文本标签测试</p>
+<!--换行-->
+<br/>
+<!--分割线-->
+<hr/>
+<pre>文本标签</pre>
+<hr/>
+<h1>超链接</h1>
+<!--超链接-->
+<a href="/WEB-INF/pages/Test.html" title="本地资源页面">测试页面</a>
+<a href="https://www.baidu.com" title="网络连接">百度</a>
+
+<hr/>
+<h1>表格</h1>
+<!--表格-->
+<table border="2px" >
+    <caption>表格标题</caption>
+    <thead>
+    <tr>
+        <th>表头1</th>
+        <th>表头2</th>
+        <th>表头3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>行1，列1</td>
+        <td>行1，列2</td>
+        <td>行1，列3</td>
+    </tr>
+    <tr>
+        <td>行2，列1</td>
+        <td>行2，列2</td>
+        <td>行2，列3</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>跨行和跨列</h2>
+
+<table border="1" style="text-align: center">
+    <tr>
+        <td colspan="2">表格内容</td>
+        <td>表格内容</td>
+        <td>表格内容</td>
+    </tr>
+    <tr>
+        <td>表格内容</td>
+        <td rowspan="3">表格内容</td>
+        <td colspan="2">表格内容</td>
+    </tr>
+    <tr>
+        <td rowspan="2">表格内容</td>
+        <td>表格内容</td>
+        <td>表格内容</td>
+    </tr>
+    <tr>
+        <td>表格内容</td>
+        <td>表格内容</td>
+    </tr>
+    <tr>
+        <td>表格内容</td>
+        <td colspan="3">表格内容</td>
+    </tr>
+</table>
+
+<hr/>
+
+<h1>列表</h1>
+<!--无序列表-->
+<ul>
+    <li>列表1</li>
+    <li>列表2</li>
+    <li>列表3</li>
+</ul>
+<hr/>
+<!--有序列表-->
+<ol>
+    <li>列表1</li>
+    <li>列表2</li>
+    <li>列表3</li>
+</ol>
+<hr/>
+
+
+<!--图像标签-->
+<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度" width="200"
+height="200" title="百度log">
+<img src="/static/img/img_1.png" alt="百度" width="200" height="200"
+     title="本地资源图片">
+<hr/>
+<div style="border: 1px solid black;width: 100px;height: 100px;">This is a div block</div>
+<div style="border: 1px solid black;width: 100px;height: 100px;">This is a div block</div>
+
+<span style="border: 1px solid black;width: 100px;height: 100px;">This is a span block</span>
+<span style="border: 1px solid black;width: 100px;height: 100px;">This is a span block</span>
+<hr/>
+
+</body>
+</html>

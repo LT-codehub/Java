@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2D变换效果</title>
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        ul li > a{
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul li{
+            width: 80px;
+            height: 40px;
+            margin-left: 15px;
+            line-height: 40px;
+            list-style: none;
+            text-align: center;
+            float: left;
+            background-color: #428bca;
+        }
+        ul li:hover{
+            /* x轴不变，y轴向下移动10像素 */
+            /*transform: translateX(0);*/
+            /*transform: translateY(10px);*/
+            /* 如果只有一个参数，默认为x轴 */
+            transform: translate(10px, 10px);
+        }
+        ul:after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+        ul.transform-2 li:hover{
+            transform: scale(1.5, 0.5);
+        }
+        ul.transform-3 li:hover{
+            transform: rotate(90deg) scale(3);
+        }
+        ul.transform-4 li:hover{
+            transform: skew(45deg, 30deg);
+        }
+    </style>
+</head>
+<body>
+<h1>2D位移效果</h1>
+<ul class="transform-1">
+    <li><a href="">动画</a></li>
+    <li><a href="">番剧</a></li>
+    <li><a href="">科技</a></li>
+    <li><a href="">数码</a></li>
+    <li><a href="">鬼畜</a></li>
+    <li><a href="">动物圈</a></li>
+    <li><a href="">美食圈</a></li>
+</ul>
+<h1>2D缩放效果</h1>
+<ul class="transform-2">
+    <li><a href="">动画</a></li>
+    <li><a href="">番剧</a></li>
+    <li><a href="">科技</a></li>
+    <li><a href="">数码</a></li>
+    <li><a href="">鬼畜</a></li>
+    <li><a href="">动物圈</a></li>
+    <li><a href="">美食圈</a></li>
+</ul>
+<h1>2D旋转效果</h1>
+<ul class="transform-3">
+    <li><a href="">动画</a></li>
+    <li><a href="">番剧</a></li>
+    <li><a href="">科技</a></li>
+    <li><a href="">数码</a></li>
+    <li><a href="">鬼畜</a></li>
+    <li><a href="">动物圈</a></li>
+    <li><a href="">美食圈</a></li>
+</ul>
+<h1>2D倾斜效果 - 浏览器兼容性不好</h1>
+<ul class="transform-4">
+    <li><a href="">动画</a></li>
+    <li><a href="">番剧</a></li>
+    <li><a href="">科技</a></li>
+    <li><a href="">数码</a></li>
+    <li><a href="">鬼畜</a></li>
+    <li><a href="">动物圈</a></li>
+    <li><a href="">美食圈</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,9 @@
+body{
+    background: burlywood;
+    color: orangered;
+    font-size: 18px;
+}
+body:after{
+    content: "iphone 678 plus plus plus 设备屏幕宽414px";
+    font-weight: bold;
+}
