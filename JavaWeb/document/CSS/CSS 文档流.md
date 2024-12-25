@@ -30,12 +30,6 @@
 1. 行内元素在一行中，从左向右排列
 2. 行内元素不可以设置width、height、margin、padding、border等属性
 3. 行内元素可以设置margin和padding的上下左右值
-###块级元素和行内元素的区别
-
-   块级元素会独占一行，可以设置width、height、margin、padding、border等属性，并且可以设置margin和padding的左右值，但是不能设置margin和padding的上下值，否则上下值会失效。
-
-   行内元素在页面中以行内形式展现，不会独占一行，不可以设置width、height、margin、padding、border等属性，并且可以设置margin和padding的上下左右值。
-
 ###行内块元素
 ```html
 <div style="display: inline-block;">div元素</div>

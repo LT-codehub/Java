@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+  <style>
+    #testId{
+      background-color: red;
+    }
+
+    .classTest{
+      background-color: blue;
+    }
+
+    [title=蛇皮]{
+      background-color: green;
+    }
+
+    a:link {color:#FF0000;} /* 未访问的链接 */
+    a:visited {color:#00FF00;} /* 已访问的链接 */
+    a:hover {color:#FF00FF;} /* 鼠标划过链接 */
+    a:active {color:#0000FF;} /* 已选中的链接 */
+
+
+    span{
+      background-color: yellow;
+    }
+
+    p:first-line
+    {
+      color: black;
+      font-variant:small-caps;
+    }
+
+    *{
+      text-align: center;
+    }
+   </style>
+</head>
+<body>
+<div id="testId"><p>id选择器</p></div>
+<div class="classTest"><p>类选择器</p></div>
+<div title="蛇皮"><p>属性选择器</p></div>
+<div><a href="">伪类选择器</a></div>
+<div><p><span>元素(标签)选择器</span></p></div>
+<div><p>伪元素选择器</p></div>
+<div><p>通用选择器</p></div>
+
+
+</body>
+</html>

@@ -16,7 +16,7 @@
 ##标题 h1 ~ h6
 ##段落 p
 ##图像 img
-##列表 ul / ol
+##列表 ul / ol / dl
 ##超链接 a
 ##表单 form
 ##表格 table

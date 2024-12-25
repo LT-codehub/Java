@@ -21,4 +21,39 @@
         -->
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <!--配置filter,并为filter起别名-->
+        <filter-name>filter1</filter-name>
+        <filter-class>com.tao.test.FilterTestOne</filter-class>
+    </filter>
+    <filter>
+        <filter-name>filter2</filter-name>
+        <filter-class>com.tao.test.FilterTestTwo</filter-class>
+        <!--配置filter的初始参数-->
+        <init-param>
+        <param-name>dateTimePattern</param-name>
+        <param-value>yyyy-MM-dd HH:mm:ss</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>filter3</filter-name>
+        <filter-class>com.tao.test.FilterTestThree</filter-class>
+    </filter>
+
+    <!--filter-mapping的顺序决定了过滤器的工作顺序-->
+    <!--为别名对应的filter配置要过滤的目标资源-->
+    <filter-mapping>
+        <filter-name>filter1</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filter2</filter-name>
+        <!--通过映射路径确定过滤资源-->
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filter3</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
 </web-app>

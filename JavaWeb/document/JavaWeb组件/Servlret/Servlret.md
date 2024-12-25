@@ -16,13 +16,13 @@
 # [手动实现Servlet程序](https://blog.csdn.net/stony3/article/details/129293286)
 ##配置IDEA
 1. 创建一个普通JavaWeb项目或者为已存在的Java项目添加一个web模块
-   ![img.png](img.png)
+   ![img.png](img/img.png)
 2. 配置Tomcat服务器
    
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 3. 配置jar包依赖
 
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 ##Servlet实例
 1. 创建一个普通JavaWeb项目或者为已存在的Java项目添加一个web模块
 2. 编写一个类去实现Servlet 接口
@@ -59,8 +59,8 @@ public class HelloServlet implements Servlet {
 ```
 4. 到web.xml中去配置servlet程序的访问地址(在servlet类上使用@WebServlet注解配置访问地址)
 ```xml
-<!--web.xml 中的配置：-->
 <?xml version="1.0" encoding="UTF-8"?>
+<!--web.xml 中的配置：-->
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
@@ -88,113 +88,126 @@ version="4.0">
 ```
 4.1 在servlet类上使用@WebServlet注解配置访问地址
 ```java
-
+@WebServlet("/ServletTest")
+public class ServletTest extends HelloServlet{
+    
+}
 ```
-![截图](2b4e7d408f40f4598ee146e760b696fd.png)
+![截图](img/2b4e7d408f40f4598ee146e760b696fd.png)
 
 ## Servlet 的生命周期
-
-
+```markdown
 1. 执行Servlet 构造器方法
 2. 执行init 初始化方法
     * 第一、二步，是在第一次访问，的时候创建Servlet 程序会调用。
 3. 执行service方法
-   (浏览器每次http://localhost:8088/web_servlet/Hello时，Hello组件都会被访问，代码上的体现就是service方法每次都会被调用)
+   * (浏览器每次http://localhost:8088/web_servlet/Hello时，Hello组件都会被访问，代码上的体现就是service方法每次都会被调用)
 第三步，每次访问都会调用。
 4. 执行destroy 销毁方法
 第四步，在web 工程停止的时候调用。
+```
 
+生命周期：从出生到死亡的过程就是生命周期。对应Servlet中的三个方法：`init()`,`service()`,`destroy()`
+* 默认情况下：
+    1. 第一次接收请求时，这个Servlet会进行实例化(调用构造方法)、初始化(调用init())、然后服务(调用service())
+    2. 从第二次请求开始，每一次都是服务
+    3. 当容器关闭时，其中的所有的servlet实例会被销毁，调用销毁方法
+* 通过案例我们发现：
+    - Servlet实例tomcat只会创建一个，所有的请求都是这个实例去响应。
+    - **默认情况下，第一次请求时，tomcat才会去实例化，初始化，然后再服务.这样的好处是什么？ 提高系统的启动速度 。 
+      这样的缺点是什么？ 第一次请求时，耗时较长**。
+    - 因此得出`结论`： 
+        * 如果需要提高系统的启动速度，当前默认情况就是这样。 
+        * 如果需要提高响应速度，我们应该`设置Servlet的初始化时机`，將所有初始化的开销集中在项目启动时，以提升用户体验。
+```xml
+<servlet>
+    <servlet-name>servletLifeCycle</servlet-name>
+    <servlet-class>com.atguigu.servlet.ServletLifeCycle</servlet-class>
+<!--load-on-startup 如果配置的是正整数则表示容器在启动时就要实例化Servlet, 数字表示的是
+实例化的顺序 -->
+    <!-- 此项配置决定服务初始化的时机-->
+    <!-- 只要配置了此项servlet的启动会随着Tomcat的启动而启动-->
+    <!-- 数字越小，启动越靠前，最小值0 -->
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+    <servlet-name>servletLifeCycle</servlet-name>
+    <url-pattern>/servletLiftCycle</url-pattern>
+</servlet-mapping>
+```
 
-生命周期：从出生到死亡的过程就是生命周期。对应Servlet中的三个方法：init(),service(),destroy()
-默认情况下：
- 第一次接收请求时，这个Servlet会进行实例化(调用构造方法)、初始化(调用init())、然后服务(调用service())
- 从第二次请求开始，每一次都是服务
- 当容器关闭时，其中的所有的servlet实例会被销毁，调用销毁方法
-通过案例我们发现：
- - Servlet实例tomcat只会创建一个，所有的请求都是这个实例去响应。
- - 默认情况下，第一次请求时，tomcat才会去实例化，初始化，然后再服务.这样的好处是什么？ 提高系统的启动速度 。 
-   这样的缺点是什么？ 第一次请求时，耗时较长。
- - 因此得出结论： 如果需要提高系统的启动速度，当前默认情况就是这样。
-   如果需要提高响应速度，我们应该设置Servlet的初始化时机。
-Servlet的初始化时机：
- - 默认是第一次接收请求时，实例化，初始化
- <!-- 此项配置决定服务初始化的时机-->
- <!-- 只要配置了此项servlet的启动会随着Tomcat的启动而启动-->
- - 我们可以通过<load-on-startup>来设置servlet启动的先后顺序,数字越小，启动越靠前，最小值0
-Servlet在容器中是：单例的、线程不安全的
+```java
+注解形式
+ @WebServlet(urlPatterns = {"/demo01"} ,
+     initParams = {
+         @WebInitParam(name="hello",value="world"),
+         @WebInitParam(name="uname",value="jim")
+     })
+```
+* Servlet在容器中是：单例的、线程不安全的
     - 单例：所有的请求都是同一个实例去响应
     - 线程不安全：一个线程需要根据这个实例中的某个成员变量值去做逻辑判断。
       但是在中间某个时机，另一个线程改变了这个成员变量的值，从而导致第一个线程的执行路径发生了变化
-    - 我们已经知道了servlet是线程不安全的，给我们的启发是： 尽量的不要在servlet中定义成员变量。
-      如果不得不定义成员变量，那么不要去：①不要去修改成员变量的值 ②不要去根据成员变量的值做一些逻辑判断
+    - 我们已经知道了servlet是线程不安全的，给我们的启发是： `尽量的不要在servlet中定义成员变量`。
+         如果不得不定义成员变量，那么不要去：①不要去修改成员变量的值 ②不要去根据成员变量的值做一些逻辑判断
 
 
-
-
-
-
+#HttpServlet类是什么？
+HttpServlet类是Java Servlet API中的一个类，它提供了一个基础的HTTP Servlet实现。该类继承自GenericServlet类，并实现了Servlet
 ## Servlet类的继承关系
 
-![截图](4b462c11b17cad56cfd543baf04f07fc.png)
+![截图](img/4b462c11b17cad56cfd543baf04f07fc.png)
 
-```
-2. Servlet的继承关系 - 重点查看的是服务方法（service()）
-    1. 继承关系
-      javax.servlet.Servlet接口
-          javax.servlet.GenericServlet抽象类
-              javax.servlet.http.HttpServlet抽象子类
-
-    2. 相关方法
-      javax.servlet.Servlet接口:
-        void init(config) - 初始化方法
-        void service(request,response) - 服务方法
-        void destory() - 销毁方法
-
-      javax.servlet.GenericServlet抽象类：
-        void service(request,response) - 仍然是抽象的
-
-      javax.servlet.http.HttpServlet 抽象子类：
-        void service(request,response) - 不是抽象的
-        1. String method = req.getMethod(); 获取请求的方式
-        2. 各种if判断，根据请求方式不同，决定去调用不同的do方法(一共7种)
-            if (method.equals("GET")) {
-                this.doGet(req,resp);
-            } else if (method.equals("HEAD")) {
-                this.doHead(req, resp);
-            } else if (method.equals("POST")) {
-                this.doPost(req, resp);
-            } else if (method.equals("PUT")) {
-        3. 在HttpServlet这个抽象类中，do方法都差不多:
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            String protocol = req.getProtocol();
-            String msg = lStrings.getString("http.method_get_not_supported");
-            if (protocol.endsWith("1.1")) {
-                resp.sendError(405, msg);
-            } else {
-                resp.sendError(400, msg);
-            }
-        }
-    3.小结：
-    1) 继承关系： HttpServlet -> GenericServlet -> Servlet
-    2) Servlet中的核心方法： init() , service() , destroy()
-    3) 服务方法： 当有请求过来时，service方法会自动响应（其实是tomcat容器调用的）
-            在HttpServlet中我们会去分析请求的方式：到底是get、post、head还是delete等等
-            然后再决定调用的是哪个do开头的方法
-            那么在HttpServlet中这些do方法默认都是405的实现风格-要我们子类去实现对应的方法，否则默认会报405错误
-    4) 因此，我们在新建Servlet时，我们才会去考虑请求方法，从而决定重写哪个do方法（如果重写的不对，
-       则使用父类的405错误实现）
-       生命周期：实例化、初始化、服务、销毁
-        - Tomcat负责维护Servlet实例的生命周期
-        - 每个Servlet在Tomcat容器中只有一个实例，它是线程不安全的
-        - Servlet的启动时机：<load-on-startup>
-        - Servlet3.0开始支持注解: @WebServlet
-
-
+**Servlet的继承关系 - 重点查看的是服务方法（service()）**
+###继承关系
 ```
 
-<br/>
+    javax.servlet.Servlet接口
+        javax.servlet.GenericServlet抽象类
+            javax.servlet.http.HttpServlet抽象子类
+```
+###相关方法(重点)
+javax.servlet.`Servlet`接口:
+* void init(config) - 初始化方法
+* void service(request,response) - 服务方法
+* void destory() - 销毁方法
 
-### ServletConfig
+javax.servlet.`GenericServlet`抽象类：GenericServlet抽象类主要持有servletConfig对象，并且可以通过servletConfig获取servletContext对象
+* void service(request,response) - 仍然是抽象的
+
+javax.servlet.http.`HttpServlet`子类：在HttpServlet中，通过请求中不同的参数(请求方式)，来决定调用不同的do方法(一共7种),必须重写对应do方法
+* void service(request,response)方法
+* doGet(request,response)方法
+* doPost(request,response)方法
+* doXxx方法
+```java
+ 1. 在Servlet被访问时
+ 2. 容器调用service方法
+ 3. service方法调用与请求方式对应的doXxx方法
+    3.1 String method = req.getMethod(); 获取请求的方式
+    3.2各种if判断，根据请求方式不同，决定去调用不同的do方法(一共7种)
+        if (method.equals("GET")) {
+            this.doGet(req,resp);
+        } else if (method.equals("HEAD")) {
+            this.doHead(req, resp);
+        } else if (method.equals("POST")) {
+            this.doPost(req, resp);
+        } else if (method.equals("PUT")) {
+ 4. 在HttpServlet这个抽象类中，do方法都差不多:
+ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+     String protocol = req.getProtocol();
+     String msg = lStrings.getString("http.method_get_not_supported");
+     if (protocol.endsWith("1.1")) {
+         resp.sendError(405, msg);
+     } else {
+         resp.sendError(400, msg);
+     }
+   }
+```
+
+**注：在实际开发中，我们只需要重写doGet或者doPost方法即可，因为HttpServlet会根据请求方式的不同，调用不同的do方法。**
+
+## ServletConfig
 
 ```
 ServletConfig 类从类名上来看，就知道是Servlet 程序的配置信息类。
@@ -205,7 +218,6 @@ Servlet 程序默认是第一次访问的时候创建，ServletConfig 是每个S
 ServletConfig类的本质就是对应Servlet程序的配置文件。
 在IDEA中获取的ServletConfig类就是获取在web.xml中的对该Servlet程序的配置部分
 ```
-
 #### ServletConfig 类的三大作用
 
 ```
@@ -214,17 +226,20 @@ ServletConfig类的本质就是对应Servlet程序的配置文件。
 3、获取ServletContext 对象 //getServletContext()
 ```
 
-### ServletContext
+
+## ServletContext
 
 ```java
-/***
+/*
 1、ServletContext 是一个接口，它表示Servlet 上下文对象
 2、一个web 工程，只有一个ServletContext 对象实例。
 3、ServletContext 对象是一个域对象。
-4、ServletContext 是在web 工程部署启动的时候创建。在web 工程停止的时候销毁。*/
+4、ServletContext 是在web 工程部署启动的时候创建。在web 工程停止的时候销毁。
+*/
+
 什么是域对象?
 域对象，是可以像Map 一样存取数据的对象，叫域对象。
-这里的域指的是存取数据的操作范围，整个web 工程。
+这里的域指的是存取数据的操作范围，ServletContext的作用域整个web工程。
           存数据                取数据                删除数据
 Map       put()                 get()                 remove()
 域对象    setAttribute()        getAttribute()        removeAttribute();
@@ -258,15 +273,10 @@ System.out.println("工程下imgs 目录1.jpg 的绝对路径是:" + context.get
 }
 ```
 
-<br/>
-
-<br/>
-
 ### 设置编码
 
 ```
-
-    tomcat8之前，设置编码：
+tomcat8之前，设置编码：
       1)get请求方式：
         //get方式目前不需要设置编码（基于tomcat8）
         //如果是get请求发送的中文数据，转码稍微有点麻烦（tomcat8之前）
@@ -277,16 +287,11 @@ System.out.println("工程下imgs 目录1.jpg 的绝对路径是:" + context.get
         fname = new String(bytes,"UTF-8");
       2)post请求方式：
         request.setCharacterEncoding("UTF-8");
-    tomcat8开始，设置编码，只需要针对post方式
+tomcat8开始，设置编码，只需要针对post方式
         request.setCharacterEncoding("UTF-8");
-    注意：
-        需要注意的是，设置编码(post)这一句代码必须在所有的获取参数动作之前
+    注意：需要注意的是，设置编码(post)这一句代码必须在所有的获取参数动作之前
+    
 
-
-
-
-
-7.
 
 // 200 : 正常响应
 // 302 : 重定向
@@ -299,7 +304,7 @@ System.out.println("工程下imgs 目录1.jpg 的绝对路径是:" + context.get
 ### Http协议
 
 ```
-:Http协议
+Http协议
     1） Http 称之为 超文本传输协议
     2） Http是无状态的
     3） Http请求响应包含两个部分：请求和响应
@@ -319,7 +324,7 @@ System.out.println("工程下imgs 目录1.jpg 的绝对路径是:" + context.get
         3)响应体：响应的实际内容（比如请求add.html页面时，响应的内容就是<html><head><body><form....）
 ```
 
-### 会话session
+#### 会话session
 
 ```
 
@@ -354,20 +359,113 @@ System.out.println("工程下imgs 目录1.jpg 的绝对路径是:" + context.get
 
 ```
 
-### 服务器内部转发以及客户端重定向
+## 服务器内部转发以及客户端重定向
+####转发-服务端行为
+* 请求转发通过`HttpServletRequest`对象获取请求转发器实现；
+* 请求转发是`服务器内部的行为`，`对客户端是屏蔽的`：
+* 客户端只发送了一次请求，客户端地址栏不变；
+* 服务端只`产生了一对请求和响应对象`，这一对请求和响应对象会继续传递给下一个资源：
+* 因为全程只有`一个HttpServletRequest对象`，所以请求参数可以传递，请求域中的数据也可以传递
+> 请求转发`可以`转发给其他Servlet动态资源，也可以转发给一些静态资源以实现页面跳转；  
+> 清求转发`可以`转发给WEB-INF下受保护的资源；  
+> 清求转发`不能`转发到本项目以外的外部资源： 
+```java
+@WebServlet("/servletA")
+public class ServletA extends HttpServlet{
+    @Override
+    protected void service(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
+        //获取请求转发器
+        //转发给servlet ok
+        RequestDispatcher requestDispatcher req.getRequestDispatcher("servletB");
+        //转发给一个视图资源ok
+        //RequestDispatcher requestDispatcher
+        req.getRequestDispatcher("welcome.html");
+        //转发给WEB-INF下的资源ok
+        //RequestDispatcher requestDispatcher req.getRequestDispatcher("WEB-INF/views/view1.html");
+        //转发给外部资源no
+        //RequestDispatcher requestDispatcher
+        req.getRequestDispatcher("http //www.atguigu.com")
+        //获取请求参数
+        String username req.getParameter("username");
+        System.out.println(username);
+        //向请求域中添加数据
+        req.setAttribute("reqKey","requestMessage");
+        //做出转发动作
+        requestDispatcher.forward(req,resp);
+    }
+}
+
+@WebServlet("/servletB")
+public class ServletB extends HttpServlet{
+    @Override
+    protected void service(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
+        //获取请求参数
+        String username req.getParameter("username");
+        System.out.println(username)
+        //获取请求城中的数据
+        String reqMessage =(String)req.getAttribute("reqKey");
+        System.out.println(reqMessage);
+        //做出响应
+        resp.getWriter().write("servletB response");
+}
+
+}
 
 ```
+####重定向-客户端行为
+* 响应重定向通过HttpServlet Response对象的sendRedirect方法实现；
+* 响应重定向是服务端通过302响应码和路径，告诉客户端自己去找其他资源，是在服务端提示下的客户端的行为；
+* 客户端至少发送了两次请求，客户端地址栏是要变化的；
+* 服务端产生了多对请求和响应对象，且请求和响应对象不会传递给下一个资源；
+* 因为全程产生了多个HttpServletReset对象，所以请求参数不可以传递，请求域中的数据也不可以传递：
+> 重定向可以是其他Servlet动态资源，也可以是一些静态资源以实现页面跳转，  
+重定向`不可以`到给WEB-INF下受保护的资源；  
+重定向`可以`到本项以外的外部资源
 
-    1） 服务器内部转发 : request.getRequestDispatcher("...").forward(request,response);
-      - 一次请求响应的过程，对于客户端而言，内部经过了多少次转发，客户端是不知道的
-      - 地址栏没有变化
-    2） 客户端重定向： response.sendRedirect("....");
-      - 两次请求响应的过程。客户端肯定知道请求URL有变化
-      - 地址栏有变化
-    3)response.getwrite
+```java
+@WebServlet("/servletA")
+public class ServletA extends HttpServlet{
+    @Override
+    protected void service(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
+        
+        //获取请求参数
+        String username req.getParameter("username");
+        System.out.println(username);
+        //向请求域中添加数据
+        req.setAttribute("reqKey","requestMessage");
+        //响应重定向
+        //重定向到servlet动态资源OK
+        resp.sendRedirect("servletB");
+        //重定向到视图静态资源 OK
+        //resp.sendRedirect("welcome.html");
+        //重定向到WEB-INF下的资源 NO
+        //resp.sendRedirect("WEB-INF/views/view1");
+        //重定向到外部资源
+        //resp.sendRedirect("http://www.atguigu.com")
+    }
+}
+
+@WebServlet("/servletB")
+public class ServletB extends HttpServlet{
+    @Override
+    protected void service(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
+        //获取请求参数
+        String username req.getParameter("username");
+        System.out.println(username)
+        //获取请求城中的数据
+        String reqMessage =(String)req.getAttribute("reqKey");
+        System.out.println(reqMessage);
+        //做出响应
+        resp.getWriter().write("servletB response");
+}
+
+}
+
 ```
 
 ### 域对象
+
+![img.png](img/img_3.png)
 
 ```
 1. 保存作用域
@@ -413,99 +511,5 @@ System.out.println("工程下imgs 目录1.jpg 的绝对路径是:" + context.get
 
 ```
 
-<br/>
-
-### Servlet的生命周期
-
-```
-实例化：有tomcat容器决定
-初始化：init(),init(config)
-如果我们想要在Servlet初始化时做一些准备工作，那么我们可以重写init方法
-   我们可以通过如下步骤去获取初始化设置的数据
-   - 获取config对象：ServletConfig config = getServletConfig();
-   - 获取初始化参数值： config.getInitParameter(key);
-         在web.xml文件中配置Servlet
-    <servlet>
-        <servlet-name>Demo01Servlet</servlet-name>
-        <servlet-class>com.atguigu.servlet.Demo01Servlet</servlet-class>
-        <init-param>
-            <param-name>hello</param-name>
-            <param-value>world</param-value>
-        </init-param>
-        <init-param>
-            <param-name>uname</param-name>
-            <param-value>jim</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Demo01Servlet</servlet-name>
-        <url-pattern>/demo01</url-pattern>
-    </servlet-mapping>
- 4) 也可以通过注解的方式进行配置：
- @WebServlet(urlPatterns = {"/demo01"} ,
-     initParams = {
-         @WebInitParam(name="hello",value="world"),
-         @WebInitParam(name="uname",value="jim")
-     })
-
-
-2. 学习Servlet中的ServletContext和<context-param>
-    1) 获取ServletContext，有很多方法
-       在初始化方法中： ServletContxt servletContext = getServletContext();
-       在服务方法中也可以通过request对象获取，也可以通过session获取：
-       request.getServletContext(); session.getServletContext()
-    2) 获取初始化值：
-       servletContext.getInitParameter();
-
-
-
-
-4. 事务管理
-
-5. TransActionManager、ThreadLocal、OpenSessionInViewFilter
-```
-
-<br/>
-
-## 过滤器Filter
-
-```
-1) Filter也属于Servlet规范
-2) Filter开发步骤：新建类实现Filter接口，然后实现其中的三个方法：init、doFilter、destroy
-   配置Filter，可以用注解@WebFilter，也可以使用xml文件 <filter> <filter-mapping>
-3) Filter在配置时，和servlet一样，也可以配置通配符，例如 @WebFilter("*.do")表示拦截所有以.do结尾的请求
-4) 过滤器链
-   1）执行的顺序依次是： A B C demo03 C2 B2 A2
-   2）如果采取的是注解的方式进行配置，那么过滤器链的拦截顺序是按照全类名的先后顺序排序的
-   3）如果采取的是xml的方式进行配置，那么按照配置的先后顺序进行排序
-   
-  过滤器的应用：
-  CharacterEncodingFilter.java
-  OpenSessionInViewFilter.java
-```
-
-<br/>
-
-## 监听器Listener
-
-```
-
-    1) ServletContextListener - 监听ServletContext对象的创建和销毁的过程
-    2) HttpSessionListener - 监听HttpSession对象的创建和销毁的过程
-    3) ServletRequestListener - 监听ServletRequest对象的创建和销毁的过程
-
-    4) ServletContextAttributeListener - 监听ServletContext的保存作用域的改动(add,remove,replace)
-    5) HttpSessionAttributeListener - 监听HttpSession的保存作用域的改动(add,remove,replace)
-    6) ServletRequestAttributeListener - 监听ServletRequest的保存作用域的改动(add,remove,replace)
-
-    7) HttpSessionBindingListener - 监听某个对象在Session域中的创建与移除
-    8) HttpSessionActivationListener - 监听某个对象在Session域中的序列化和反序列化
-    
-    
-    
-    监听器应用：
-    ContextLoaderListener
-    当ServletContext对象创建时，就初始化IOC容器
-```
 #参考
 [从零开始Servlet](https://www.runoob.com/servlet/servlet-tutorial.html)
