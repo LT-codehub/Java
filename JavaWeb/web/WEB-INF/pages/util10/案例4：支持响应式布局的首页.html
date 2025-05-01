@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>响应式布局的首页</title>
+    <link href="style/index.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .header{min-height: 150px}
+        .content>div{min-height: 300px;float: left;box-sizing: border-box;}
+        .footer{min-height: 200px;}
+        .b1{border: orangered dotted 1px;}
+        .container{
+            /*width: 800px;*/
+            margin: 0 auto;
+        }
+        .container:after, .content:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header b1"></div>
+    <div class="content b1">
+        <!-- 假设中间的层为左右布局：默认30% : 70% -->
+        <!--
+            class="col-3 col-xs-10"
+            在普通屏幕下，col-3起作用；在超小屏幕下，col-xs-10起作用
+        -->
+        <div class="col-3 col-xs-10 b1">
+            <img src="images/background.jpg">
+        </div>
+        <div class="col-7 col-xs-10 b1"></div>
+    </div>
+    <div class="footer b1"></div>
+</div>
+</body>
+</html>

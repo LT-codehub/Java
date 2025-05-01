@@ -1,0 +1,6 @@
+body{
+    color: blue;
+}
+body:after{
+    content: "检测到用户使用的是普通屏幕"
+}

@@ -1,0 +1,43 @@
+body{
+    padding: 0;     /* 设置页面的内边距为0 */
+    margin: 0;      /* 设置页面的外边距为0 */
+}
+
+.border{border: orange dotted 1px;}
+
+/***          container开始           ****/
+/*<div>*/
+/*    <p class='container'>*/
+/*</div> */
+/* div .container */
+/* .container div   ->   在container修饰的父容器下的所有子div标签 */
+/*<nav class="container">*/
+/*    <div></div>*/
+/*    <div></div>*/
+/*</nav>*/
+
+/* 设置 使用container类修饰的div标签 的样式*/
+/* 对应的HTML：<div class="container">　 */
+div.container{
+    width: 1000px;
+    /*min-height: 400px;*/
+    margin: 0 auto;                 /* 大部分浏览器都支持的可以让当前标签在父容器内居中 */
+    font-size: 14px;
+    text-align: center;             /* 一般用来兼容早期的IE浏览器居中（需要放在body样式中） *!*/
+    border: crimson dotted 1px;
+}
+
+div.container table{
+    width: 100%;
+}
+div.container table .app-1{
+    width: 158px;
+    height: 158px;
+    margin: 0 auto;
+    /* 因为当前的css文件在style目录下，所以这里需要使用一个相对路径 */
+    background-image: url("../images/app-1.png");
+}
+div.container table tr td span{
+    color: rgb(94,203,252);
+}
+/***          container结束           ****/

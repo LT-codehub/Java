@@ -9,11 +9,11 @@
    2. 输出流：从本程序内部到外部程序
 3. 流的角色：`节点流`、`处理流`
    1. 节点流： 直接从数据源或目的地读写数据  
-   2. 处理流： `**包裹在已存在的流**`**（节点流或处理流）之上，对正在流动的数据进行处理**
+   2. 处理流： `包裹在已存在的流`（节点流或处理流）之上，对正在流动的数据进行处理**
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655991144695-454cb960-a4af-4740-9711-70cb8380f5c0.png#averageHue=%23fce8d7&clientId=udf0e80ef-8f2c-4&from=paste&height=366&id=uf80f4573&originHeight=366&originWidth=582&originalType=binary&ratio=1&rotation=0&showTitle=false&size=18962&status=done&style=none&taskId=u98d1c9ce-e4b7-4c47-b2f3-3206d86ca45&title=&width=582)
+![image.png](image/img_1.png)
 # 流的体系结构
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655991157459-a2b2650d-1c7a-489c-b4bc-6ff57730356e.png#averageHue=%23c2b49d&clientId=udf0e80ef-8f2c-4&from=paste&height=375&id=u40943a03&originHeight=375&originWidth=594&originalType=binary&ratio=1&rotation=0&showTitle=false&size=144013&status=done&style=none&taskId=ubdc2fa3b-b084-4a3f-934a-ff233c475c3&title=&width=594)
+![image.png](image/img_2.png)
 说明：红框对应的是IO流中的4个抽象基类。**蓝框的流需要大家重点关注**。
 
 1. InputStream ----------------------字节输入流
@@ -49,9 +49,7 @@
 - `void flush()`：
 - `void close()`：
 
-**程序中打开的文件IO资源不属于内存里的资源，垃圾回收机制无法回收该资源，所以应该显式关闭文件IO资源。  **
-## 重点说明的几个流结构
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655991163883-eb04d282-a54a-4344-bdb8-d70a713e21c4.png#averageHue=%23fefdf9&clientId=udf0e80ef-8f2c-4&from=paste&height=113&id=u5ccc604b&originHeight=113&originWidth=1096&originalType=binary&ratio=1&rotation=0&showTitle=false&size=15795&status=done&style=none&taskId=ubf27bc8e-bc9e-455e-ae47-ee2916e5a07&title=&width=1096)
+**程序中打开的文件IO资源不属于内存里的资源，`垃圾回收机制无法回收该资源`，所以应该显式关闭文件IO资源。**
 # 输入、输出的标准化过程
 ## 输入过程
 

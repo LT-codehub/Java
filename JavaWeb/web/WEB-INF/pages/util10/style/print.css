@@ -1,0 +1,6 @@
+body{
+    color: red;
+}
+body:after{
+    content: "检测到用户使用的是打印预览或打印机"
+}

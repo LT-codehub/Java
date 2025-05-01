@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    target属性：
+    _self   点击链接后，在当前页面显示新页面
+    _blank  在新打开的页面中显示链接对应的页面内容
+    _parent 在父框架中显示
+    _top    不管嵌套几层容器，始终在顶层容器中显示链接页
+    自己命名，实现在框架页中显示指定的链接
+-->
+<a href="案例5：图像标签.html" title="点我查看孙尚香的玉照" target="_top">
+    <img src="images/孙尚香头像.jpg"/>点我查看孙尚香的玉照
+</a>
+<br/>
+<a href="http://wiki.xuetang9.com" target="laojiuweiji">我想看到老九学堂维基百科网站首页</a>
+<div>
+    <!-- 内嵌框架页 -->
+<!--    <iframe src="http://www.baidu.com" width="100%" height="800" frameborder="0"></iframe>-->
+<!--    <iframe src="案例5：图像标签.html" name="laojiuweiji" width="100%" height="800" frameborder="0"></iframe>-->
+    <iframe src="http://stock.hexun.com/symjtjmk/" frameborder="0" width="610" height="337" scrolling="no"></iframe>
+</div>
+</body>
+</html>

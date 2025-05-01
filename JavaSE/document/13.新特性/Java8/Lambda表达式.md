@@ -1,25 +1,32 @@
-1.Lambda表达式使用前后的对比：
+#Lambda表达式的本质
+一种接口/抽象类的匿名实现方式，本质是函数式接口的实例对象。
+
+##Lambda表达式使用前后的对比：
 举例一：
+```java
 @Test
 public void test1(){
 
-    Runnable r1 = new Runnable() {
+        Runnable r1 = new Runnable() {
         @Override
         public void run() {
-            System.out.println("我爱北京天安门");
+        System.out.println("我爱北京天安门");
         }
-    };
+        };
 
-    r1.run();
+        r1.run();
 
-    System.out.println("***********************");
+        System.out.println("***********************");
 
-    Runnable r2 = () -> System.out.println("我爱北京故宫");
+        Runnable r2 = () -> System.out.println("我爱北京故宫");
 
-    r2.run();
-}
+        r2.run();
+        }
+```
+
 
 举例二：
+```java
 @Test
 public void test2(){
 
@@ -48,16 +55,17 @@ public void test2(){
     int compare3 = com3.compare(32,21);
     System.out.println(compare3);
 }
-2.Lambda表达式的基本语法：
-* 1.举例： (o1,o2) -> Integer.compare(o1,o2);
-* 2.格式：
-*      -> :lambda操作符 或 箭头操作符
-*      ->左边：lambda形参列表 （其实就是接口中的抽象方法的形参列表
-*      ->右边：lambda体 （其实就是重写的抽象方法的方法体
+```
 
-3.如何使用：分为六种情况
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655996545615-05b17bcc-8345-47a6-8672-b23dcaacce5f.png#clientId=u62afb866-52fe-4&from=paste&height=352&id=u4a469d6e&originHeight=352&originWidth=717&originalType=binary&ratio=1&rotation=0&showTitle=false&size=50979&status=done&style=none&taskId=ufa85ab82-a6a5-43d5-a357-7f04ecaf2cb&title=&width=717)![image.png](https://cdn.nlark.com/yuque/0/2022/png/28932072/1655996553149-f915ceaf-9786-428f-9ce8-70de25778aca.png#clientId=u62afb866-52fe-4&from=paste&height=355&id=u7a133cda&originHeight=355&originWidth=727&originalType=binary&ratio=1&rotation=0&showTitle=false&size=74887&status=done&style=none&taskId=ud80428b6-a3f4-418d-b63f-23ff7e3452c&title=&width=727)
+##Lambda表达式的基本语法：
+1. 举例： (o1,o2) -> Integer.compare(o1,o2);
+2. 格式：
+     * -> :lambda操作符 或 箭头操作符
+     * ->左边：lambda形参列表 （其实就是接口中的抽象方法的形参列表
+     * ->右边：lambda体 （其实就是重写的抽象方法的方法体
 
+###如何使用：分为六种情况
+![img.png](../image/img_2.png)
 
 总结六种情况：
 ->左边：lambda形参列表的参数类型可以省略(类型推断)；如果lambda形参列表只一个参数，其一对()也可以省略

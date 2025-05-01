@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景裁切效果</title>
+    <style type="text/css">
+        body{margin: 0;}
+        div{
+            width:100%;
+            height:150px;
+            font-size: 36px;
+            line-height: 100px;
+            color: #999999;
+            border: orangered dotted 20px;
+            margin: 10px 0;
+            padding: 50px;
+            background: linear-gradient(90deg, red, orange, yellow, green, indigo, blue, violet);
+        }
+        .background-clip-1{
+            background-clip: border-box;
+        }
+        .background-clip-2{
+            background-clip: padding-box;
+        }
+        .background-clip-3{
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+<div class="background-clip-1">默认属性border-box：裁切的起点从border的外延开始</div>
+<div class="background-clip-2">padding-box：背景从padding的区域向外裁剪，超过padding区域的背景将被裁切掉</div>
+<div class="background-clip-3">content-box：背景从content的区域向外裁剪，超过content区域的背景将被裁切掉</div>
+</body>
+</html>

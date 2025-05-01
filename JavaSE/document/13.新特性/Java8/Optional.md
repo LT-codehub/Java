@@ -1,10 +1,10 @@
-java.util.Optional类
-1.理解：为了解决java中的空指针问题而生！
+#java.util.Optional类
+* 理解：为了解决java中的空指针问题而生！
 Optional<T> 类(java.util.Optional) 是一个容器类，它可以保存类型T的值，代表这个值存在。或者仅仅保存null
-，表示这个值不存在。原来用 null 表示一个值不存在，现在 Optional 可以更好的表达这个概念。并且可以避
-免空指针异常。
+，表示这个值不存在。原来用 null 表示一个值不存在，现在 Optional 可以更好的表达这个概念。并且可以避免空指针异常。
 
-2.常用方法：
+##常用方法：
+```java
 @Test
     public void test1(){
         //empty():创建的Optional对象内部的value = null
@@ -46,9 +46,12 @@ Optional<T> 类(java.util.Optional) 是一个容器类，它可以保存类型T�
 
 
     }
+```
 
-3.典型练习：
+
+###典型练习
 能保证如下的方法执行中不会出现空指针的异常。
+```java
 //使用Optional类的getGirlName():
 public String getGirlName2(Boy boy){
 
@@ -74,6 +77,8 @@ public void test5(){
     System.out.println(girlName);
 
 }
+```
+
 
 
 

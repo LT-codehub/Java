@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+    <meta charset="UTF-8">
+    <title>腾讯PVP首页</title>
+    <style type="text/css">
+        body{padding:0; margin:0;}
+        .page-content{
+            position: relative;
+            width: 100%;
+            min-height: 2100px;
+        }
+        .b1{border: #ff2200 dotted 1px;}
+        .page-background{/* 背景图片层 */
+            position: absolute;
+            width: 100%;
+            height: 1100px;
+            left: 0;    top: 0;
+            background-image: url("images/background-hzlh.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            z-index: -1;            /* 设置z轴坐标为负，以便显示其他的组件 */
+        }
+        .abs-link{
+            position: absolute;
+            width: 1200px;
+            height: 455px;          /* 自己测量得出 */
+            top: 90px;
+            left: 50%;              /* x坐标为当前页面的中间点 */
+            margin-left: -600px;    /* 因为自己的宽是1200px，往左移动600像素就一定是当前页面的中间效果 */
+            text-indent: -9999px;   /* 缩进一个不可能的值，用来隐藏文字 */
+        }
+        /* 以下是正常布局元素 */
+        .page-main{
+            width: 1200px;
+            min-height: 800px;
+            margin: 550px auto auto auto;
+        }
+        .page-main-top{
+            width: 100%;
+            height: 340px;
+            background: url("images/rotate_bg.png") no-repeat left top;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="page-content b1">
+    <!-- 设置为绝对定位，专门用来设置大背景图片 -->
+    <div class="page-background"></div>
+    <!-- 同样设置成绝对定位 -->
+    <a class="abs-link b1" href="#" title="进入爆料站">进入爆料站：写什么文字都可以，反正最后你也看不到</a>
+    <!-- 下面就是网页的正常布局层 -->
+    <div class="page-main">
+        <div class="page-main-top">
+            正常书写代码即可：可以添加一个左中右的布局
+        </div>
+    </div>
+</div>
+</body>
+</html>

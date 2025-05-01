@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <!--
+        缺点：中间main的最小宽度不能小于左侧栏的宽度
+     -->
+    <style type="text/css">
+        body{margin: 0; padding: 0;}
+        div{min-height: 800px;}
+        .main{
+            width: 100%;
+            background: bisque;
+        }
+        .side-left{
+            width: 240px;
+            background: darksalmon;
+        }
+        .side-right{
+            width: 300px;
+            background: burlywood;
+        }
+        /* 步骤1：设置三个层为浮动 */
+        .main, .side-left, .side-right{float: left;}
+        /* 步骤2：让left移动到main的左侧（爬升） */
+        .side-left{
+            margin-left: -100%;
+        }
+        .side-right{
+            margin-left: -300px;
+        }
+        /* 步骤3：设置定位方式，给main腾出位置 */
+        .container{
+            padding: 0 300px 0 240px;
+        }
+        .side-left{
+            position: relative;
+            left: -240px;
+        }
+        .side-right{
+            position: relative;
+            right: -300px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 最终目标：首先加载中间层内容，在加载其他层，而且还是呈现左中右布局 -->
+    <div class="main">main</div>
+    <div class="side-left">side-left</div>
+    <div class="side-right">side-right</div>
+</div>
+</body>
+</html>

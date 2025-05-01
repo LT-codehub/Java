@@ -1,0 +1,12 @@
+label{
+    color: green;
+}
+
+a:link{
+    color: yellow;
+    text-decoration:none;
+}
+a:visited{
+    color: yellow;
+    text-decoration:none;
+}

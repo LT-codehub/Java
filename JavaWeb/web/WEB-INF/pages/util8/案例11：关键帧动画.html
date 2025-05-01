@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关键帧动画</title>
+    <style type="text/css">
+        div{width: 240px; height: 240px; background-color: yellow;}
+        /* 第一步：设置关键帧 */
+        @keyframes animation1 {
+            0%  {background-color: yellow;}
+            50% {background-color: #ff7f00;}
+            100%{background-color: blueviolet;}
+        }
+        .animation-1{
+            /* infinite 表示播放无限次数*/
+            animation: animation1 2s 5;
+        }
+        @keyframes spread {
+            from    {background-color: red; /*transform: none;*/}
+            to      {background-color: darkorange; /*transform: scale(2)*/}
+            0%      {width: 0%}
+            33%     {width: 33%}
+            66%     {width: 66%}
+            100%    {width: 100%}
+        }
+        .animation-2{
+            animation-name: spread;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+            animation-direction: alternate-reverse;
+        }
+        .animation-3{
+            animation-name: spread;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+            animation-fill-mode: both;
+        }
+        @keyframes direction-test {
+            from {background-color: white;}
+            to {background-color: red;}
+        }
+        .animation-4-1{
+            animation: direction-test 3s normal;
+            animation-iteration-count: 4;   /* 播放4次以便查看最终的效果 */
+            animation-fill-mode: forwards;
+        }
+        .animation-4-2{
+            animation: direction-test 3s reverse;
+            animation-iteration-count: 4;   /* 播放4次以便查看最终的效果 */
+            animation-fill-mode: forwards;
+        }
+        .animation-4-3{
+            /* alternate 交替的意思 */
+            animation: direction-test 3s alternate;
+            animation-iteration-count: 4;   /* 播放4次以便查看最终的效果 */
+            animation-fill-mode: forwards;
+        }
+        .animation-4-4{
+            animation: direction-test 3s alternate-reverse;
+            animation-iteration-count: 4;   /* 播放4次以便查看最终的效果 */
+            animation-fill-mode: forwards;
+        }
+        .animation-5{
+            animation: direction-test 3s infinite steps(5);
+        }
+    </style>
+</head>
+<body>
+<div class="animation-1"></div>
+<div class="animation-2"></div>
+<div class="animation-3"></div>
+<div class="animation-4-1">animation-direction: noraml</div>
+<div class="animation-4-2">animation-direction: reverse</div>
+<div class="animation-4-3">animation-direction: alternate</div>
+<div class="animation-4-4">animation-direction: alternate-reverse</div>
+
+<style type="text/css">
+    /* 精灵向下移动的关键帧 */
+    @keyframes sprite-down {
+        from    {background-position: 0px 0px;}
+        12.5%   {background-position: -80px 0px;}
+        25%   {background-position: -160px 0px;}
+        37.5%   {background-position: -240px 0px;}
+        50%   {background-position: -320px 0px;}
+        62.5%   {background-position: -400px 0px;}
+        75%   {background-position: -480px 0px;}
+        87.5%   {background-position: -560px 0px;}
+        /*to   {background-position: -80px 0px;}*/
+    }
+    .sprite-1{
+        width: 80px;
+        height: 91px;
+        background: url(images/sprite.png) no-repeat;
+        /* 浏览器中，从一个状态过渡到另一个状态，默认是平滑过渡，steps函数可以实现分步过渡 */
+        animation: sprite-down 0.8s infinite steps(1);
+    }
+</style>
+<div class="animation-5">体会steps函数的作用</div>
+<h1>使用steps函数实现一个精灵动画</h1>
+<div class="sprite-1"></div>
+
+<div style="width: 100%;min-height: 300px;background: none;"></div>
+</body>
+</html>

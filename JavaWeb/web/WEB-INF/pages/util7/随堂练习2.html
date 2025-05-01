@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随堂练习2</title>
+    <style type="text/css">
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li>a{
+            font-size: small;
+            color: #212121;
+            text-decoration: none;
+        }
+        ul li>a:hover{
+            color: #00a1d6;
+        }
+        ul li>span{
+            /* 就可以设置宽高属性了 */
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            font-size: small;
+            line-height: 15px;
+            text-align: center;
+            color: grey;
+        }
+        /*ul li>span.rank{*/
+        /*    */
+        /*}*/
+        ul li > span[class^="ra"]{
+            background: #00a1d6;
+            color: #fff;
+        }
+
+        /* ~会匹配整个单词，所以并不适合href属性；适合class属性 */
+        ul li > a[href*="163"]{
+            color: darkorchid;
+        }
+        /* |=仍然会匹配整个单词，不适合href属性；适合lang这种有-分隔符的属性 */
+        ul li > a[href|="http"]{
+
+        }
+        /*ul li > span[class~="b1"]{*/
+        /*    */
+        /*}*/
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <span class="rank b1 left fr">1</span>
+        <a href="#">童年阴影！盘点柯南十大吓人...</a>
+    </li>
+    <li>
+        <span class="rank">2</span>
+        <a href="#">【 来 了 】威 风 钉 钉.</a>
+    </li>
+    <li>
+        <span class="rank">3</span>
+        <a href="#">再快的奔驰 终归比不上门当户对</a>
+    </li>
+    <li>
+        <span>4</span>
+        <a href="http://www.163.com/xxx.shtml">【爆肝两个月】明日方舟动画：无题世界...</a>
+    </li>
+    <li>
+        <span>5</span>
+        <a href="https://www.bilibili.com/xxx.html">粉 红 星 语 出 惊 人 的 骚 操 作...</a>
+    </li>
+</ul>
+</body>
+</html>

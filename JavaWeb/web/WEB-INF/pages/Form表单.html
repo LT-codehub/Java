@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form表单</title>
+</head>
+<body>
+<form action="提交地址" method="提交方式">
+  <input type="text" name="表单名称" value="表单值"/><br>
+  <input type="password" name="表单名称" placeholder="请输入表单值"/><br>
+  <input type="radio" name="表单名称" value="表单值"/>
+  <input type="radio" name="表单名称" value="表单值"/>
+  <input type="radio" name="表单名称" value="表单值"/><br/>
+  <input type="checkbox" name="表单名称" value="表单值"/>
+  <input type="checkbox" name="表单名称" value="表单值"/>
+  <input type="checkbox" name="表单名称" value="表单值"/><br/>
+  <input type="submit" value="提交"/>
+  <input type="reset" value="重置"/>
+  <input type="button" value="按钮"/>
+</form>
+
+<hr/>
+<!-- 创建一个表单，包含输入框、按钮、下拉列表、单选、多选、文件上传、多行文本 -->
+<form>
+  <label for="username">用户：</label>
+  <input type="text" name="username" id="username" placeholder="请输入用户名" required><br>
+
+  <label for="email">邮箱：</label>
+  <input type="email" name="email" id="email" placeholder="请输入邮箱" required><br>
+
+  <label for="age">年龄：</label>
+  <input type="number" name="age" id="age" min="1" max="100" placeholder="请输入年龄" required><br>
+
+  <label for="gender">性别：</label>
+  <select name="gender" id="gender" required>
+    <option value="">请选择</option>
+    <option value="male">男</option>
+    <option value="female">女</option>
+  </select><br>
+
+  <label for="hobbies">爱好：</label>
+  <input type="checkbox" name="hobbies" id="hobbies" value="reading">阅读
+  <input type="checkbox" name="hobbies" id="hobbies1" value="swimming">游泳
+  <input type="checkbox" name="hobbies" id="hobbies2" value="travelling">旅行
+
+  <label for="file">文件：</label><br>
+  <input type="file" name="file" id="file"><br>
+
+  <label for="message">消息：</label><br>
+  <textarea name="message" id="message" rows="4" cols="50" placeholder="请输入消息" required></textarea>
+
+  <input type="submit" value="提交">
+</form>
+
+<hr/>
+<!--语义化于元素-->
+<form action="" method="">
+  请选择性别：
+  <label for="male">男</label>
+  <input type="radio" name="gender" id="male"/>
+  <label for="female">女</label>
+  <input type="radio" name="gender" id="female"/>
+  <fieldset>
+    <legend>个人信息:</legend>
+    <label for="name">姓名:</label>
+    <input type="text" id="name"><br>
+    <label for="email">邮箱:</label>
+    <input type="email" id="email1"><br>
+    <label for="age">年龄:</label>
+    <input type="number" id="age1" min="1" max="100" placeholder="请输入年龄"><br>
+  </fieldset>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性布局之主轴上的对齐方式</title>
+    <style type="text/css">
+        .flex-container-1{
+            width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;    /* 默认值，主轴为从左到右的方向 */
+            /*flex-direction: column;*/         /* 主轴为从上到下的方向 */
+            /*flex-direction: row-reverse;*/    /* 主轴为从右到左的方向 */
+            /*flex-direction: column-reverse;     !* 主轴为从下到上的方向 *!*/
+        }
+        .flex-container-1 > div{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 100px;
+            color: white;
+            background: orange;
+            border: 1px orangered dotted;
+        }
+        .b1{border: orangered dotted 1px;}
+    </style>
+</head>
+<body>
+<h1>flex-direction属性，默认不折行(nowrap)</h1>
+<div class="flex-container-1 b1">
+    <div>元素1</div>      <div>元素2</div>      <div>元素3</div>      <div>元素4</div>
+    <div>元素5</div>      <div>元素6</div>      <div>元素7</div>      <div>元素8</div>
+    <div>元素5</div>      <div>元素6</div>      <div>元素7</div>      <div>元素8</div>
+    <div>元素5</div>      <div>元素6</div>      <div>元素7</div>      <div>元素8</div>
+</div>
+
+<h1>flex-wrap属性</h1>
+<style type="text/css">
+    .flex-container-2{
+        width: 820px;
+        margin: 0 auto;
+        display: flex;
+        /*flex-direction: row;        !* 默认值，主轴为从左到右的方向 *!*/
+        /*flex-wrap: wrap;            !* 设置容器内为换行 *!*/
+        /*flex-wrap: wrap-reverse;    !* 反向折行：从容器的底部开始折行，每行元素之间的排列仍然保持正向 *!*/
+        flex-flow: row wrap-reverse;    /* 简写形式，相当于规定了flex布局的工作流(flow) */
+    }
+    .flex-container-2 > div{
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 24px;
+        line-height: 100px;
+        color: white;
+        background: orange;
+        border: 1px orangered dotted;
+    }
+    .b1{border: orangered dotted 1px;}
+</style>
+<div class="flex-container-2 b1">
+    <div>元素1</div>      <div>元素2</div>      <div>元素3</div>      <div>元素4</div>
+    <div>元素5</div>      <div>元素6</div>      <div>元素7</div>      <div>元素8</div>
+    <div>元素10</div>      <div>元素11</div>      <div>元素12</div>      <div>元素13</div>
+    <div>元素14</div>      <div>元素15</div>      <div>元素16</div>      <div>元素17</div>
+</div>
+</body>
+</html>

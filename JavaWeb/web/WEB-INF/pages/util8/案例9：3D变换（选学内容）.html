@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width:350px;height: 350px;
+            font-size: 36px;
+            color: wheat;
+            border: #ff2200 dotted 1px;
+            margin: 30px ;
+        }
+        .transform-3d-1{
+            /*透视是transform变形3D中最重要的内容。如果不设置透视，元素的3D变形效果将无法实现*/
+            /* 要在父级元素设置透视视距 */
+            -webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+            -ms-perspective: 1200px;
+            -o-perspective: 1200px;
+            perspective: 1200px;
+        }
+        .transform-3d-0 > div{
+            width: 200px;   height: 200px;
+            border: #FF7F00 solid 1px;
+            background-color: #357ebd;
+            transform: rotatex(45deg);
+        }
+        .transform-3d-1 > div{
+            width: 200px;   height: 200px;
+            border: #FF7F00 solid 1px;
+            background-color: #357ebd;
+            transform: rotateX(45deg);
+        }
+    </style>
+</head>
+<body>
+<!--
+    CSS3中的3D变换主要包括以下几种功能函数
+    3D位移：CSS3中的3D位移主要包括translateZ()和translate3d()两个功能函数；
+    3D旋转：CSS3中的3D旋转主要包括rotateX()、rotateY()、rotateZ()和rotate3d()四个功能函数；
+    3D缩放：CSS3中的3D缩放主要包括scaleZ()和scale3d()两个功能函数；
+    3D矩阵：CSS3中3D变形中和2D变形一样也有一个3D矩阵功能函数matrix3d()。
+    如果不设置透视，那么浏览器会将元素的3D变形操作投射垂直到2D视平面上，最终呈现出来的只是元素的宽高变化
+　　要深入了解透视，需要了解观察者、被透视元素和变形元素这几个概念。
+　　首先变形元素，顾名思义，就是进行transform3D变形的元素，主要进行transform、transform-origin、backface-visibility等属性的设置。
+　　观察者是浏览器模拟出来的用来观察被透视元素的一个没有尺寸的点，观察者发出视线，类似于一个点光源发出光线。
+　　被透视元素也就是被观察者观察的元素，根据属性设置的不同，它有可能是变形元素本身，也可能是它的父级或祖先其元素(后面会详细介绍)，主要进行perspective、perspective-origin等属性的设置
+[注意]透视perspective不可为0和负数，因为观察者与屏幕距离为0时或者在屏幕背面时是不可以观察到被透视元素的正面的
+　　[注意]透视perspective不可取百分比，因为百分比需要相对的元素，但z轴并没有可相对的元素尺寸
+【1】一般地，物体离得越远，显得越小。反映在perspective属性上，就是该属性值越大，元素的3d效果越不明显。(就像离一个人很近，甚至可以看到他的毛孔；如果离一个人很远，可能只看到一个轮廓)
+【2】设置透视perspective属性的元素就是被透视元素。一般地，该属性只能设置在变形元素的父级或祖先级。因为浏览器会为其子级的变形产生透视效果，但并不会为其自身产生透视效果
+1.perspective取值为none或不设置，就没有真3D空间。
+ 2.perspective取值越小，3D效果就越明显，也就是你的眼睛越靠近真3D。
+ 3.perspective的值无穷大，或值为0时与取值为none效果一样。
+-->
+<h1>3D位移</h1>
+<div class="transform-3d-0">
+    <div>无透视效果的变形</div>
+</div>
+<div class="transform-3d-1">
+    <div>有透视效果的变形</div>
+</div>
+<style type="text/css">
+    .transform-3d-2{
+        /* 要在父级元素设置透视视距 */
+        -webkit-perspective: 1200px;
+        -moz-perspective: 1200px;
+        -ms-perspective: 1200px;
+        -o-perspective: 1200px;
+        perspective: 1200px;
+        /* 透视原点perspective-origin是指观察者的位置，一般地，观察者位于与屏幕平行的另一个平面上， */
+        /* 观察者始终是与屏幕垂直的。观察者的活动区域是被观察元素的盒模型区域*/
+        /*perspective-origin: -50px center;*/
+        perspective-origin: -50px;              /* 同：perspective-origin: -50px center; */
+    }
+    .transform-3d-2 > div{
+        width: 200px;   height: 200px;
+        border: #FF7F00 solid 1px;
+        background-color: #357ebd;
+        transform: rotateX(45deg);
+    }
+</style>
+<div class="transform-3d-2">
+    <div>有透视效果的变形</div>
+</div>
+
+<style type="text/css">
+    .transform-3d-3{width: 800px;height: 500px;border: #FF7F00 solid 1px;
+        -webkit-perspective: 1200px;
+        -moz-perspective: 1200px;
+        -ms-perspective: 1200px;
+        -o-perspective: 1200px;
+        perspective: 1200px;
+        perspective-origin: 0px;
+        /*弹性盒布局居中方法*/
+        /*将容器转换为弹性盒布局 display：flex；*/
+        /*给容器添加 justify-content：center； 水平方向居中*/
+        /*align-items：cneter； 垂直方向居中；*/
+        display: flex;justify-content: center;align-items: center;
+        flex-direction: column;
+    }
+    .transform-3d-3 div{width:550px;height:300px;background-color: orange;}
+    .box{
+        /*transform: translateZ(0px); !* 元素显示它原本的大小 *!*/
+        /*transform: translateZ(600px); !* 平移的距离越接近视距（不超过），元素就呈现地越大 反之，越小*!*/
+        /* [注意]常用-webkit-transform: translateZ(0);来开启硬件加速*/
+        /*而当平移距离超过视距后，元素就消失了，相当于物体跑到了人眼后方，自然就看不到了*/
+    /*rotateX(Ndeg)相当于rotate3d(1,0,0,Ndeg)*/
+    /*rotateY(Ndeg)相当于rotate3d(0,1,0,Ndeg)*/
+    /*rotateZ(Ndeg)相当于rotate3d(0,0,1,Ndeg)*/
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    .box:after{content:"";display:block;clear:both;}
+    .transform-3d-3 span{
+        display: block;
+        color: #ff2200;
+    }
+    input[type=range] { /* 去除系统默认的样式 */
+        -webkit-appearance: none;
+        width: 300px;
+        border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+    }
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+    /*正式开始自定义控件样式了。首先是自定义滑动控件的轨道*/
+    input[type=range]::-webkit-slider-runnable-track {
+        height: 15px;
+        background-color: #ffdd33;
+        border-radius: 10px; /*将轨道设为圆角的*/
+        box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/
+    }
+    /*原始的控件获取到焦点时，会显示包裹整个控件的边框，所以还需要把边框取消。*/
+    input[type=range]:focus {
+        outline: none;
+    }
+    /*给滑块(thumb)添加样式*/
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 25px;
+        width: 25px;
+        margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+        background: wheat;
+        border-radius: 50%; /*外观设置为圆形*/
+        /*border: solid 0.125em rgba(205, 224, 230, 0.5); !*设置边框*!*/
+        box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/
+    }
+</style>
+<div class="transform-3d-3">
+    <div id="box" class="box"></div>
+    <span id="message"></span>
+    <input type="range" min="0" max="360" oninput="changeAngle(this.value)"/>
+</div>
+
+<script type="text/javascript">
+    function changeAngle(value){
+        let box = document.getElementById("box");
+        let message = document.getElementById("message");
+        message.textContent = value;
+        box.style.transform = "rotate3d(0, 1, 0, " + value + "deg)";
+    }
+</script>
+</body>
+</html>

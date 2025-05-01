@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /* 1、将父容器的定位设置为相对定位 */
+        .news{
+            position: relative;
+            width: 360px;
+        }
+        /* 2、设置要自由移动元素的定位为绝对定位 */
+        .news div{
+            width: 100%;
+            position: absolute;
+            /*left, right, top, bottom*/
+            bottom: 10px;
+            text-align: center;
+            /*border: 1px orange dotted;*/
+            /*background-color: black;*/
+            /*opacity: 0.4;*/
+            background-color: rgba(0, 0, 0, .4);
+        }
+        .news a{
+            line-height: 32px;
+            text-decoration: none;
+            color: white;
+        }
+        div.ves{
+            position: relative;
+            width: 115px;
+            height: 53px;
+            background: url("images/block/ves.gif");
+        }
+        /* 想在父容器中自由移动，就要分别设置定位模式 */
+        div.ves div.ves-gas{
+            position: absolute;
+            width: 30px;
+            height: 33px;
+            left: 55px;
+            top: -20px;
+            background: url("images/block/ves_gas.gif");
+        }
+    </style>
+</head>
+<body>
+<div class="news">
+    <a href="#">
+        <img src="images/CE47A9DE697AFA82592D18D3A942489DBAED4515_w360_h220.jpg"/>
+    </a>
+    <!-- 用来实现透明效果的层 -->
+    <div>
+        <a href="#">疫情下美国闹“肉荒” 有民众已经开始上山打猎</a>
+    </div>
+</div>
+<div class="ves">
+    <div class="ves-gas"></div>
+</div>
+</body>
+</html>

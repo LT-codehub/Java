@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒模型的尺寸</title>
+    <style type="text/css">
+        .container1{
+            width: 350px;
+            height: 350px;
+            margin-top: 50px;
+            padding: 100px;
+
+            border: orangered dotted 20px;
+        }
+        .container2{
+            width: 350px;
+            height: 350px;
+            margin-top: 50px;
+            box-sizing: content-box;
+            border: orangered dotted 1px;
+        }
+        .box-size-border-box{
+            width: 350px;
+            height: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+            border: orangered dotted 10px;
+        }
+    </style>
+</head>
+<body>
+<!--
+    box-sizing: 用来告诉浏览器如何计算一个元素的总宽度和总高度
+    CSS的盒模型有两种，一种是W3C标准模型，另一种是IE的传统模型
+    content-box:    默认值，W3C的标准盒模型
+                    Element的总高度(内盒) = content height + padding + border (如果是外盒尺寸，还要算上margin)
+                    Element的总宽度(内盒) = content width  + padding + border (如果是外盒尺寸，还要算上margin)
+    border-box:     IE传统的盒模型
+                    Element的总高度 = content height (如果是外盒，加上margin)
+                                     content height 包含了元素的content height, padding以及border
+                    Element的总宽度 = content width (如果是外盒，加上margin)
+                                     content width 包含了元素的content width, padding以及border
+-->
+<div class="container1"></div>
+<div class="container2">
+    宽高为350像素，paddding为零0
+</div>
+<div class="box-size-border-box">
+    IE传统的盒模型<br/>
+    Element的总高度 = content height (如果是外盒，加上margin)<br/>
+    content height 包含了元素的content height, padding以及border<br/>
+    Element的总宽度 = content width (如果是外盒，加上margin)<br/>
+    content width 包含了元素的content width, padding以及border<br/>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

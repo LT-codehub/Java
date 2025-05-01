@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input元素的基本使用</title>
+</head>
+<body>
+<form action="" method="get">
+    <!-- 文本框 -->
+    <input type="text" name="txtLoginName" value="默认值"
+    placeholder="输入提示文字" size="80" maxlength="15" readonly="readonly"
+    /><br/>
+    <!-- 密码框 -->
+    <input type="password" name="txtPassword" placeholder="请输入密码"/><br/>
+    <!-- HTML4中的按钮 -->
+    <input type="button" value="普通按钮，默认情况下点击没有反应" onclick="alert('点击了普通按钮')" /><br/>
+    <input type="submit" value="提交按钮，点击后会触发表单提交的动作" /><br/>
+    <input type="reset" value="重置按钮，点击后会重置表单中所有元素的初始值"/><br/>
+    <input type="image" src="images/貂蝉头像.jpg" value="带图片的按钮，点击后，动作等同于提交按钮" /><br/>
+    <!-- 按钮标签
+        标签中的值：文字、图像、水平线、框架、分组框、音频、视频
+    -->
+    <button>按钮文本必须书写在标签内部</button><br/>
+    <button>Button标签中的文本可以<strong>嵌套</strong>其他行级元素</button><br/>
+    <button>
+        测试<span style="color:red;font-weight: bold;">嵌套</span>其他行级元素
+        <img src="images/吕布.jpg" width="50" align="center"/>
+    </button><br/>
+    <!--
+        单选按钮中，记得把name属性设置成一样
+        注意：radio控件中的value并不是给用户看的，而是用来提交的值
+     -->
+    性别： 男（用户看到的文字）<input type="radio" value="男（向服务端提交的值）" name="rbSex" checked="checked">&nbsp;&nbsp;
+           女<input type="radio" value="女" name="rbSex" checked />&nbsp;&nbsp;
+          保密<input type="radio" value="保密" name="rbSex" checked/><br/>
+    爱好：<input type="checkbox" value="吃饭" name="favs"/>吃饭
+          <input type="checkbox" value="睡觉" name="favs" checked="checked"/>睡觉
+          <input type="checkbox" value="打豆豆" name="favs"/>打豆豆
+</form>
+<hr/>
+<h1>文件域</h1>
+<!--
+    enctype:规定发送到服务器之前如果对表单数据进行编码
+    application/x-www-form-urlencoded   发送到服务器之前，所有的字符都会进行编码：空格就会转换为+加号，特殊符号会转换为ASCII HEX值
+    multipart/form-data                 不对字符进行编码，在使用包含文件上传控件的表单时，必须使用这个值
+    text/plain                          空格转换为+号，但是不对特殊字符进行编码
+-->
+<form action="" method="post" enctype="multipart/form-data">
+    请选择上传文件：<input type="file" name="file"/>
+    上传文件时，method设置为post
+</form>
+</body>
+</html>

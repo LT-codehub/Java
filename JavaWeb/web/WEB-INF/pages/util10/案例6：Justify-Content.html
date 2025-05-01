@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主轴上的对齐方式</title>
+    <style type="text/css">
+        .container-flex{
+            width: 800px;
+        }
+        .container-flex > div{
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start; /* 默认从左到右 */
+            border: 1px dotted black;
+        }
+        .container-flex > div > div{
+            width: 100px;
+            height: 100px;
+            background: orangered;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            border: 1px dotted white;
+        }
+        .container-flex > div:nth-of-type(2){
+            justify-content: flex-end;
+        }
+        .container-flex > div:nth-of-type(3){
+            justify-content: center
+        }
+        .container-flex > div:nth-of-type(4){
+            justify-content: space-between;
+        }
+        .container-flex > div:nth-of-type(5){
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+<h3></h3>
+<div class="container-flex">
+    <div >
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    </div>
+    <div >
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    </div>
+    <div >
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    </div>
+    <div >
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    </div>
+    <div >
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+        <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    </div>
+</div>
+
+<h3>解决一个两端对齐的小问题</h3>
+<style type="text/css">
+    .flex-list{
+        width: 600px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between; /* 两端对齐 */
+    }
+    .flex-list > div{
+        width: 31%;
+        text-align: center;
+        color: red;
+        border: orangered dotted 1px;
+    }
+    .flex-list:after{
+        content: "";
+        width: 31%;
+        border: 1px dotted transparent;
+    }
+</style>
+<div class="flex-list">
+    <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    <div>列表元素</div>     <div>列表元素</div>     <div>列表元素</div>
+    <div>列表元素</div>     <div>列表元素</div>
+</div>
+</body>
+</html>

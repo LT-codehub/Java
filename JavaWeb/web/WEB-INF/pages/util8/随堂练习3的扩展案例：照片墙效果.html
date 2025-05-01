@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>随堂练习3的扩展案例：挂着照片的效果</title>
+    <style>
+        body {background-color:#E9E9E9; margin:0;}
+        .container{
+            width: 1200px;
+            height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* 两端对齐，子项之间的间隔相等 */
+            align-items: center;
+        }
+        div>p{text-align: center}
+        div.photo {
+            /*width: 400px;*/
+            padding: 10px 10px 20px 10px;
+            border: 1px solid #BFBFBF;
+            background-color: white;
+            box-shadow: 2px 2px 3px #aaaaaa;
+        }
+        div.rotate_left        {
+            -ms-transform:rotate(7deg); /* IE 9 */
+            -moz-transform:rotate(7deg); /* Firefox */
+            -webkit-transform:rotate(7deg); /* Safari and Chrome */
+            -o-transform:rotate(7deg); /* Opera */
+            transform:rotate(7deg);
+        }
+        div.rotate_right {
+            -ms-transform:rotate(-8deg); /* IE 9 */
+            -moz-transform:rotate(-8deg); /* Firefox */
+            -webkit-transform:rotate(-8deg); /* Safari and Chrome */
+            -o-transform:rotate(-8deg); /* Opera */
+            transform:rotate(-8deg);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="photo rotate_left">
+        <img src="images/郭德纲.jpg" alt="郁金香"/>
+        <p>相声演员，电影、电视剧演员，电视脱口秀主持人。</p>
+    </div>
+    <div class="photo rotate_right">
+        <img src="images/高晓松.jpg" />
+        <p>音乐人、词曲创作者、制作人、导演、脱口秀节目主持人</p>
+    </div>
+</div>
+</body>
+</html>

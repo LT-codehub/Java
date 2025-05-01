@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体特性</title>
+    <style type="text/css">
+        .b1{border: orangered dotted 1px;}
+        .media-1{width:350px; height:150px;}
+        /* 当屏幕的宽小于等于500px时，.media-1隐藏 */
+        @media screen and (max-width: 500px) {
+            .media-1{display: none;}
+        }
+        /* 550到799之间 */
+        @media screen and (min-width: 550px) and
+                                (max-width: 799px) {
+            @keyframes max-width-550 {
+                from    {width:0%; background: blanchedalmond;}
+                to      {width: 350px; background: orangered;color:white;}
+            }
+            .media-1{
+                animation: max-width-550 2s forwards ease-in-out;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>示例1：当屏幕小于或等于500px时，页面中某个区域隐藏</h1>
+<div class="media-1 b1">
+    请脑补：这是一个非常精美的广告图片。。。
+</div>
+
+<style type="text/css">
+    .media-2{width:350px; height:150px;}
+    @media screen and (min-height: 500px) {
+        @keyframes min-height-500 {
+            to  {width: 50%;}
+        }
+        .media-2{
+            animation: min-height-500 1s forwards;
+        }
+    }
+    @media screen and (min-height: 600px) {
+        @keyframes min-height-600 {
+            to  {width: 100%;}
+        }
+        .media-2{
+            animation: min-height-600 1s forwards;
+        }
+    }
+</style>
+<h1>示例2：min-height和max-height</h1>
+<div class="media-2 b1">
+    请脑补：这是一个非常精美的广告图片。。。
+</div>
+</body>
+</html>

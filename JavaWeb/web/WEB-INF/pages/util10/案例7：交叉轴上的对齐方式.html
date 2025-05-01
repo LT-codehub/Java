@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交叉轴上的对齐方式</title>
+    <style type="text/css">
+        body{width: 100%; font-size: 18px;text-align: center;}
+        h1{background: orange; color: white;}
+        body > div{
+            width: 450px;
+            height: 200px;
+            background: black;
+            margin: 0 auto;
+            display: flex;
+        }
+        .align-items-stretch{
+            justify-content: flex-start;
+            align-items: stretch;   /* 默认值 */
+        }
+        body > div > div:nth-of-type(1){
+            background: palevioletred;
+        }
+        body > div > div:nth-of-type(2){
+            background: #ffba84;
+        }
+        body > div > div:nth-of-type(3){
+            background: #7b90d2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!--
+    align-items:    管单行中元素和元素之间的对齐
+    align-content:  管全局，把多行看做一个整体
+-->
+
+<h1>交叉轴上的单行对齐：align-items</h1>
+<h2>align-items: stretch;   stretch本身含有伸展、撑大的意思 当元素没有设置具体尺寸时，会在容器的交叉轴方向自动撑满</h2>
+<div class="align-items-stretch">
+    <div>元素1</div>  <div>元素2</div>  <div>元素3</div>
+</div>
+
+<h2>align-items: flex-start;  交叉轴的起始点对齐，不会自动撑满交叉轴 </h2>
+<div class="align-items-flex-start">
+    <div>元素1</div>  <div>元素2</div>  <div>元素3</div>
+</div>
+<style type="text/css">
+    .align-items-flex-start{
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+</style>
+
+<h2>align-items: flex-end;  交叉轴的终点对齐，不会自动撑满交叉轴 </h2>
+<div class="align-items-flex-end">
+    <div>元素1</div>  <div>元素2</div>  <div>元素3</div>
+</div>
+<style type="text/css">
+    .align-items-flex-end{
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+</style>
+
+<h2>align-items: flex-end;  交叉轴的中点对齐，不会自动撑满交叉轴 </h2>
+<div class="align-items-flex-center">
+    <div>元素1</div>  <div>元素2</div>  <div>元素3</div>
+</div>
+<style type="text/css">
+    .align-items-flex-center{
+        /*flex-direction: column;*/
+        justify-content: flex-start;
+        align-items: center;
+    }
+</style>
+
+<h2>align-items: baseline;  交叉轴的第一行文字的基准线对齐，不会自动撑满交叉轴 </h2>
+<div class="align-items-baseline">
+    <div>元素1<br/>换行<br/>换行</div>
+    <div>元素2<br/>换行的文字</div>
+    <div>元素3<br/>换行<br/>换行</div>
+</div>
+<style type="text/css">
+    .align-items-baseline{
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+    .align-items-baseline div:nth-of-type(1){
+        line-height: 36px;
+    }
+    .align-items-baseline div:nth-of-type(2){
+        padding-top: 80px;
+    }
+</style>
+
+<h1>交叉轴上的多行对齐：align-content</h1>
+<h2>align-content: stretch; 多行在交叉轴上的对齐：会默认铺满交叉轴方向</h2>
+<div class="align-content-stretch">
+    <div>元素1</div>  <div>元素2</div>  <div>元素3</div>
+    <div>元素4</div>  <div>元素5</div>  <div>元素6</div>
+    <div>元素7</div>  <div>元素8</div>  <div>元素9</div>
+</div>
+<style type="text/css">
+    .align-content-stretch{
+        flex-wrap: wrap;    /* 注意：如果要使用align-content属性，那么一定记得换行！！！！！ */
+    }
+    .align-content-stretch > div:nth-of-type(4){
+        background: #ffba84;
+    }
+    .align-content-stretch > div:nth-of-type(5){
+        background: goldenrod;
+    }
+    .align-content-stretch > div:nth-of-type(6){
+        background: darkgray;
+    }
+    .align-content-stretch > div{
+        width: 100px;
+    }
+</style>
+
+<h2>align-content: flex-start; 不会自动铺满交叉轴</h2>
+<div class="align-content-flex-start">
+    <div>元素1</div>  <div>元素2</div>  <div>元素3</div>
+    <div>元素4</div>  <div>元素5</div>  <div>元素6</div>
+    <div>元素4</div>  <div>元素5</div>  <div>元素6</div>
+    <div>元素4</div>  <div>元素5</div>  <div>元素6</div>
+    <div>元素4</div>  <div>元素5</div>  <div>元素6</div>
+</div>
+<style type="text/css">
+    .align-content-flex-start{
+        flex-wrap: wrap;    /* 注意：如果要使用align-content属性，那么一定记得换行！！！！！ */
+        align-content: flex-start;
+        /*align-content: space-around;*/
+    }
+    .align-content-flex-start > div:nth-of-type(4){
+        background: #ffba84;
+    }
+    .align-content-flex-start > div:nth-of-type(5){
+        background: goldenrod;
+    }
+    .align-content-flex-start > div:nth-of-type(6){
+        background: darkgray;
+    }
+    .align-content-flex-start > div{
+        width: 100px;
+    }
+    .align-content-flex-start > div{
+        color: white;border: 1px dotted orangered;
+    }
+</style>
+
+
+<div style="min-height: 300px;background: none;"></div>
+</body>
+</html>

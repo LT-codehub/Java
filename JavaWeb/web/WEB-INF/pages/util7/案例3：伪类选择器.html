@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器示例</title>
+    <style type="text/css">
+        /*.div-sample1 > h1:before{*/
+        /*    !* 默认情况下，这里会插入一个文本节点 *!*/
+        /*    content: "h1标签前插入的内容";*/
+        /*}*/
+        /*.div-sample1 > h1:after{*/
+        /*    !* 默认情况下，这里会插入一个文本节点 *!*/
+        /*    content: "h1标签后插入的内容";*/
+        /*}*/
+
+        .div-sample1{
+            width: 500px;
+            border: deeppink dotted 1px;
+        }
+        .div-sample1 div{
+            width: 200px;
+            border: blue dotted 1px;
+        }
+        .div-sample1:after{
+            content: " ";
+            display: block;
+            clear: both;
+            font-size: 0;
+            line-height: 0;
+            height: 0;
+        }
+        .fl{float: left;}
+        .fr{float: right;}
+
+        /*********** :first-child ********/
+        .div-sample2 h1:first-child{
+            color: #00a1d6;
+        }
+        .div-sample2 p:last-child{
+            color: darkorchid;
+        }
+
+        /********* :nth-child(N) *********/
+        /* 选择器匹配父元素的第N个子元素，不论元素的类型；N可以是数字、关键词或者公式 */
+        /* odd：奇数关键字；even：偶数关键字 */
+        /*.div-sample3 h1:nth-child(odd){*/
+        /*    color: darkorange;*/
+        /*}*/
+        /* 公式：an + b ；n是计数器，从0开始；b是偏移量*/
+        .div-sample3 h1:nth-child(2n+1){
+            color: darkorange;
+        }
+
+        /***** nth-of-type *******/
+        /* 表示第N个类型为div的子元素，不管有多少匹配的元素，只要不是div就不算数 */
+        .div-sample4 div:nth-of-type(2n){
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="div-sample1">
+    <h1>伪类选择器之before和after</h1>
+    <div class="fl">段落文本1</div>
+    <div class="fr">段落文本2</div>
+    <!-- 父级容器中的子元素漂浮后，就会产生父容器没有被自动撑大的bug -->
+<!--    <div style="clear: both;"></div>-->
+</div>
+<div class="div-sample2">
+    <h1>伪类选择器之:first-child - 1</h1>
+    <h1>伪类选择器之:first-child - 2</h1>
+    <h1>伪类选择器之:first-child - 3</h1>
+    <p>段落文本1</p>
+    <p>段落文本2</p>
+    <p>段落文本3</p>
+</div>
+<div class="div-sample3">
+    <h1>伪类选择器之:nth-child() - 1</h1>
+    <h1>伪类选择器之:nth-child() - 2</h1>
+    <h1>伪类选择器之:nth-child() - 3</h1>
+    <h1>伪类选择器之:nth-child() - 4</h1>
+    <h1>伪类选择器之:nth-child() - 5</h1>
+    <h1>伪类选择器之:nth-child() - 6</h1>
+    <h1>伪类选择器之:nth-child() - 7</h1>
+    <h1>伪类选择器之:nth-child() - 8</h1>
+    <p>段落文本1</p>
+    <p>段落文本2</p>
+    <p>段落文本3</p>
+</div>
+<div class="div-sample4">
+    <div>第一个子元素：div</div>
+    <p>第二个子元素：p</p>
+    <section>第三个子元素：section</section>
+    <div>第四个子元素：div</div>
+    <p>第五个子元素：p</p>
+    <section>第六个子元素：section</section>
+    <div>第七个子元素：div</div>
+    <div>第八个子元素：p</div>
+    <section>第九个子元素：section</section>
+</div>
+</body>
+</html>

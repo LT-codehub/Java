@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框半径属性</title>
+    <style type="text/css">
+        body{
+            height: 200vh;
+        }
+        div{
+            width: 350px;
+            height: 200px;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 32px;
+            border: #ff2200 solid 5px;
+        }
+        /* 50px/25px 垂直半径/水平半径 */
+        .border-radius-1{border-radius: 50px/25px;}
+        .border-radius-2{border-radius: 25px 50px;}
+        .border-radius-3{border-radius: 25px 50px 125px;}
+        .border-radius-4{border-radius: 25px 50px 75px 100px;}
+        .border-radius-5{
+            width: 350px;
+            height: 350px;
+            border-radius: 50%; /*175px;*/
+        }
+
+        /* 可重用的按钮样式 */
+        .button{
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #ebebeb;
+            border: transparent solid 1px;
+            border-radius: 4px;
+        }
+        .button:hover{
+            background-color: #EDEEDB;
+            cursor: pointer;
+        }
+
+        .btn-primary{/* 普通按钮 */
+            color: white;
+            background-color: #428bca;
+
+        }
+        .btn-success{
+            color: white;
+            background-color: #47a447;
+        }
+        .btn-lg{
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+        }
+        .btn-sm{
+            padding: 5px 10px;
+            font-size: 12px;
+            /* 1.5倍的行高 与150%的区别 */
+            /* 150%：是根据父元素的字体大小计算出的行高 */
+            /* 1.5：根据子元素自己的字体大小乘以1.5来计算行高 */
+            line-height: 1.5;
+        }
+        .btn-primary:hover{background-color: #428bca;box-shadow: inset 1px 1px 10px orangered;}
+    </style>
+</head>
+<body>
+<div class="border-radius-1">一个参数：数值默认作用于4个角</div>
+<div class="border-radius-2">两个参数：上左下右 | 上右下左<br/>实际上是设置了对角线</div>
+<div class="border-radius-3">三个参数：上左 | 上右下左 | 右下</div>
+<div class="border-radius-4">四个参数：分别设置四个角的半径（顺时针方向）</div>
+<div class="border-radius-5">设置圆形：容器的宽高需要设置成一样的</div>
+<h1>仿Bootstrap的按钮样式：大家注意体会设置可重用样式的技巧</h1>
+<button class="button btn-lg">默认按钮</button>
+<button class="button btn-primary">普通按钮</button>
+<button class="button btn-success btn-lg">成功按钮</button>
+<button class="button btn-success btn-sm">成功的小按钮</button>
+</body>
+</html>

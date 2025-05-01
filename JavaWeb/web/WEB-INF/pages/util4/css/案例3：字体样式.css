@@ -1,0 +1,28 @@
+body{
+    /* 一般会在body标签中为整个页面设置统一的字体、字号等属性 */
+
+}
+
+.introduce{
+    /* font-style font-weight font-size font-family */
+    /*font: italic bold 48px "微软雅黑";*/
+    font-family: Microsoft YaHei,-apple-system,PingFang SC,Droid Sans Fallback,Droid Sans,HYQiHei,Arial,Helvetica Neue,Hiragino Sans GB,sans-serif;
+    /*font-size: 14px;*/
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: lighter;
+    color: black;
+    /* 设置文本修饰：下划线 */
+    text-decoration: underline;
+}
+.introduce2{
+    /* 屏幕取色 */
+    color: rgba(255,95,28, 0.8);
+}
+.text_align{
+    width: 600px;
+    /* 可以用来撑大父容器以及实现居中(middle)对齐的效果 */
+    line-height: 24px;
+    text-align: justify;
+    border: orange 1px dotted;
+}
