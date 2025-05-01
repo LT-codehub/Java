@@ -38,5 +38,10 @@ public class ArraysTest {
         }else{
             System.out.println("未找到");
         }
+
+        //复制：copyOf()
+        int[] ints = Arrays.copyOf(arr3, arr3.length - 1);
+        System.out.println(Arrays.toString(ints));
+        //反转：reverse()
     }
 }

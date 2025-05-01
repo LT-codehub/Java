@@ -1,4 +1,4 @@
-
+package com.se.unit3;
 
 /*
 如何从键盘获取不同类型（基本数据类型、String类型）的变量：使用Scanner类。

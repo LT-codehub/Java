@@ -1,4 +1,6 @@
-/*
+package com.se.unit3;
+
+/**
 循环结构之一：for循环
 
 1. Java中规范了3种循环结构：for、while、do-while
@@ -20,12 +22,13 @@ for(①;②;④){
 class ForTest {
 	public static void main(String[] args) {
 		//需求1：题目：输出5行HelloWorld
-		/*
+		/**
 		System.out.println("HelloWorld");
 		System.out.println("HelloWorld");
 		System.out.println("HelloWorld");
 		System.out.println("HelloWorld");
 		System.out.println("HelloWorld");
+
 		*/
 
 		for(int i = 1;i <= 50;i++){

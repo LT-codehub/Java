@@ -8,11 +8,13 @@ package com.se.unit2;
  */
 public class Temp {
 
-    // 代码块局部变量
+    //实例变量
     int x = 30;
 
+    //类变量
     static int x1 = 50;
 
+    //类成员
     static {
         int y1 = 30;
         System.out.println(y1);
@@ -21,28 +23,35 @@ public class Temp {
     }
 
     // 进入代码块
+    //实例成员
     {
-        int y = 50;
-        System.out.println("Inside the block: x + y = " + (x + y));
+        int y3 = 50;
+        System.out.println("Inside the block: x + y3 = " + (x + y3));
     }
+
+
+
     public static void main(String[] args) {
         System.out.println(Math.abs(Integer.MIN_VALUE));
 
         //Temp temp = new Temp();
         // 代码块局部变量
-        int x = 10;
+        int x2 = 10;
 
         // 进入代码块
+        //局部成员
         {
             int y = 20;
-            System.out.println("Inside the block: x + y = " + (x + y));
+            System.out.println("Inside the block: x2 + y = " + (x2 + y));
         }
 
         // 无法访问代码块内的局部变量 y
-        // System.out.println("Outside the block: x + y = " + (x + y)); // 编译错误
+        // System.out.println("Outside the block: x2 + y = " + (x2 + y)); // 编译错误
 
         // 仍然可以访问代码块外的局部变量 x
-        System.out.println("Outside the block: x = " + x);
+        System.out.println("Outside the block: x2 = " + x2);
+
+        Temp temp = new Temp();
     }
 
 

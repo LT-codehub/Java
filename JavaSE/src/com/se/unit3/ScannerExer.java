@@ -1,3 +1,5 @@
+package com.se.unit3;
+
 import java.util.Scanner;
 class ScannerExer {
 	public static void main(String[] args) {

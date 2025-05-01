@@ -1,4 +1,4 @@
-/*
+package com.se.unit3;/*
 案例：编写程序：从键盘上输入2023年的“month”和“day”，要求通过程序输出输入的日期为2023年的第几天。
 */
 import java.util.Scanner;

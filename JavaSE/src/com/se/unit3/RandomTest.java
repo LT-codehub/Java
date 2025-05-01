@@ -1,3 +1,5 @@
+package com.se.unit3;
+
 /*
 如何获取一个随机数?
 
